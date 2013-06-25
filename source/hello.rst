@@ -1,0 +1,44 @@
+
+Hello World
+===========
+
+Here is the canonical Hello World application.
+
+.. code-block:: d
+
+   import std.stdio;
+
+   void main() {
+      writeln("Hello World!");
+   }
+
+The reason to start with this,
+is to test the build setup.
+`Download and install the dmd compiler <http://dlang.org/download.html>`_.
+Put the code above into a file called ``hello.d``.
+Then compile and execute.
+
+.. code-block:: sh
+
+   $ dmd hello.d
+   $ ./hello
+   Hello World!
+
+If you cannot get this to run as shown,
+you should ask for help
+at the `D Learn Forum <http://forum.dlang.org/group/digitalmars.D.learn>`_
+or in the ``#d`` IRC channel on Freenode.
+
+Convenience
+-----------
+
+For a more convenient interface,
+the compiler allows to compile-and-execute directly.
+
+.. code-block:: sh
+
+   $ dmd -run hello.d
+   Hello World!
+
+Since the compiler is very fast,
+this feels like using a scripting language.
