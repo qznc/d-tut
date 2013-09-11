@@ -33,12 +33,17 @@ Convenience
 -----------
 
 For a more convenient interface,
-the compiler allows to compile-and-execute directly.
+the ``rdmd`` wrapper allows to compile-and-execute directly.
 
 .. code-block:: sh
 
-   $ dmd -run hello.d
+   $ rdmd hello.d
    Hello World!
 
 Since the compiler is very fast,
 this feels like using a scripting language.
+You could even put the invocation into the file as a shebang on UNIX.
+
+.. code-block:: sh
+
+    #!/usr/bin/env rdmd

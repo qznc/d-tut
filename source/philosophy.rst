@@ -10,6 +10,14 @@ proclaims (and then elaborates):
 
    Modern convenience. Modeling power. Native efficiency.
 
+The strong focus on C++ means to inherit parts of its philosophy.
+Like C++, D provides powerful abstraction mechanisms
+without sacrificing performance.
+If you are looking for a better C++,
+you should feel at home with D.
+If you dislike C++,
+you might like D for being C++ done right.
+
 Critique
 --------
 

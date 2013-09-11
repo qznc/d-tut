@@ -13,3 +13,8 @@ but LDC uses LLVM and GDC the GCC backend.
 
 Nevertheless, dmd is the reference compiler
 and there are subtle differences as well as shortcomings in LDC and GDC.
+
+Benchmarking
+------------
+
+D comes with ``std.datetime.benchmark`` included.
