@@ -34,5 +34,5 @@ and thus circumvent the garbage collector.
 D provides all mechanisms for RAII like C++.
 There is no compiler/language support for Reference Counting.
 
-More to read:
-`Memory <http://dlang.org/memory.html>`_
+.. seealso::
+   http://dlang.org/memory.html

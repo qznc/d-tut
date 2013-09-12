@@ -19,8 +19,8 @@ If ``a``, ``b``, and ``c`` are random access arrays,
 then ``sort`` can perform in-place over three distinct arrays.
 
 
-More to read:
-`std.range <http://dlang.org/phobos/std_range.html>`_,
-`On Iteration <http://www.informit.com/articles/printerfriendly.aspx?p=1407357&rll=1>`_,
-`Component Programming with Ranges <http://wiki.dlang.org/Component_programming_with_ranges>`_
+.. seealso::
+  `std.range <http://dlang.org/phobos/std_range.html>`_,
+  `On Iteration <http://www.informit.com/articles/printerfriendly.aspx?p=1407357&rll=1>`_,
+  `Component Programming with Ranges <http://wiki.dlang.org/Component_programming_with_ranges>`_
 
