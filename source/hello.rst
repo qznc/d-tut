@@ -19,7 +19,7 @@ Then compile and execute.
    $ ./hello
    Hello World!
 
-If you cannot get this to run as shown,
+If you cannot get this to run,
 you should ask for help
 at the `D Learn Forum <http://forum.dlang.org/group/digitalmars.D.learn>`_
 or in the ``#d`` IRC channel on Freenode.
@@ -35,9 +35,16 @@ the ``rdmd`` wrapper allows to compile-and-execute directly.
    $ rdmd hello.d
    Hello World!
 
-Since the compiler is very fast,
-this feels like using a scripting language.
-You could even put the invocation into the file as a shebang on UNIX.
+The nice fact about ``rdmd`` is that it finds additional files automatically
+and links them,
+whereas ``dmd`` only compiles the arguments.
+Hence, ``rdmd`` serves as a simplistic build tool,
+such that you might not even need something like a Makefile.
+
+The compiler is quite fast,
+so it might feel like using a scripting language.
+You could even put the invocation into the file as a shebang on UNIX
+and use D for small scripts.
 
 .. code-block:: sh
 

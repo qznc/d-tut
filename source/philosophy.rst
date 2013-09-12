@@ -5,11 +5,6 @@ To describe D in one sentence:
 
    D is what C++ wanted to be.
 
-The `D Website <http://dlang.org/index.html>`_
-proclaims (and then elaborates):
-
-   Modern convenience. Modeling power. Native efficiency.
-
 The strong focus on C++ means to inherit parts of its philosophy.
 Like C++, D provides powerful abstraction mechanisms
 without sacrificing performance.
@@ -17,6 +12,23 @@ If you are looking for a better C++,
 you should feel at home with D.
 If you dislike C++,
 you might like D for being C++ done right.
+
+The `D Website <http://dlang.org>`_ proclaims:
+
+   Modern convenience. Modeling power. Native efficiency.
+
+By modern convenience D means
+little boilerplate for type declarations,
+garbage collection,
+resource management through scope, and
+syntax for array operations.
+Power refers to the multi-paradigm approach,
+control of mutability for safer concurrency, and
+a wealth of features for any task.
+Efficiency means
+compilation to native code,
+escape hatches for unsafe features like inline assembly and pointer arithmetic, and
+additional safety annotations.
 
 Critique
 --------

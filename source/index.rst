@@ -1,6 +1,6 @@
 
-Welcome to the Pragmatic D Tutorial
-======================================
+Pragmatic D Tutorial: Welcome
+=============================
 
 This is an introduction to the
 `D Programming Language <http://dlang.org/>`_.
@@ -23,15 +23,10 @@ there are a few assumptions about you, the reader.
   examples will assume a bash shell,
   which is the default on all major distributions (including BSD and OS X).
 
-* You also read the `official D website <http://dlang.org/>`_.
-  It contains a lot of good information.
-  While some info is certainly repeated here for convenience,
-  in lots of places this tutorial just provides links.
-
 Scope
 -----
 
-This tutorial does not explore deep into syntax and semantic of D
+This tutorial does not explore deeply into the syntax and semantic of D
 nor does it try to cover every feature.
 Since D is a large language,
 it does not make sense to learn everything,
@@ -50,7 +45,7 @@ therefore it does not cover these aspects.
 
 .. seealso::
 
-   `Features of D Language <http://dlang.org/comparison.html>`_,
+   `Feature List of D <http://dlang.org/comparison.html>`_,
    `Language Reference <http://dlang.org/language-reference.html>`_
 
 Contents
