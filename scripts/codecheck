@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+#set -x
+
+for f in examplecode/*.d
+do
+  echo "$f"
+  if grep main $f
+  then
+    rdmd -wi -unittest $f >/dev/null
+  else
+    rdmd -wi -main -unittest $f >/dev/null
+  fi
+done

@@ -4,13 +4,8 @@ Hello World
 
 Here is the canonical Hello World application.
 
-.. code-block:: d
-
-   import std.stdio;
-
-   void main() {
-      writeln("Hello World!");
-   }
+.. literalinclude:: ../examplecode/helloworld.d
+   :language: d
 
 The reason to start with this,
 is to test the build setup.

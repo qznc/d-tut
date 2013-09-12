@@ -14,14 +14,5 @@ In contrast to examples within the doc-comment,
 these examples are executed as part of the testing process,
 which means they are actually checked for errors.
 
-.. code-block:: d
-
-   /** @returns the argument times two */
-   int twice(int x) { return x+x; }
-
-   /** for example */
-   unittest {
-      assert (twice(-1) == -2);
-      assert (twice(2) == 4);
-   }
-
+.. literalinclude:: ../examplecode/unittestexample.d
+   :language: d
