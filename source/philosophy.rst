@@ -49,3 +49,8 @@ Nevertheless the size is not a design goal of D as a language.
 
    We want a comprehensive language, not a big/complex/perfect one.
    -- `Andrei Alexandrescu <http://www.youtube.com/watch?v=4M-0LFBP9AU>`_
+
+.. seealso::
+
+   `D Overview <http://dlang.org/overview.html>`_,
+   `Rationale for some D design decisions <http://dlang.org/rationale.html>`_

@@ -31,7 +31,8 @@ there are a few assumptions about you, the reader.
 Scope
 -----
 
-This tutorial does not explore deep into syntax and semantic of D.
+This tutorial does not explore deep into syntax and semantic of D
+nor does it try to cover every feature.
 Since D is a large language,
 it does not make sense to learn everything,
 before you start using it.
@@ -46,6 +47,11 @@ functional, and generic programming.
 However, this tutorial is not a guide on design,
 when to use what paradigm,
 therefore it does not cover these aspects.
+
+.. seealso::
+
+   `Features of D Language <http://dlang.org/comparison.html>`_,
+   `Language Reference <http://dlang.org/language-reference.html>`_
 
 Contents
 --------
@@ -69,6 +75,10 @@ Contents
    multicores
    unicode
    networking
+   formats
+   datetime
+   next
+   fineprint
 
 Indices and tables
 ==================

@@ -4,6 +4,18 @@ Memory Management
 D use garbage collection for heap allocated data by default.
 This provides a safe default
 and you can program without memory worries like in Java.
+
+.. warning::
+
+   Since you are reading this tutorial,
+   you are obviously not an experienced D programmer.
+   **Just use the garbage collector!**
+   The rest of this section is only provided
+   to show possibilities.
+
+Garbage Collector Tuning
+-------------------------
+
 However, (after careful profiling!) you might find the garbage collector to be the bottleneck.
 In this case D provides various ways to fix this.
 
@@ -14,6 +26,7 @@ no matter what kind of memory management you use.
 You can disable garbage collection temporarily.
 
 .. code-block:: d
+
     std.gc.disable()
     // no garbage collection in here, only allocation
     std.gc.enable()
@@ -23,6 +36,8 @@ D allows to replace the garbage collector by the application
 to optimize for specific scenarios.
 The current garbage collector is not as good as e.g. the Hotspot JVMs.
 
+Manual Memory Management
+------------------------
 
 If all those approaches do not help,
 you can use still use manual memory management.

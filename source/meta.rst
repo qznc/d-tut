@@ -3,8 +3,11 @@ Meta Programming
 
 From safe to powerful.
 
-Templates
----------
+Class and Function Templates
+----------------------------
+
+Traits
+------
 
 String Mixins
 -------------
