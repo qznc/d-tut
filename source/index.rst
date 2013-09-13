@@ -70,8 +70,8 @@ Contents
    multicores
    unicode
    networking
-   formats
-   datetime
+   ide
+   gui
    next
    fineprint
 
