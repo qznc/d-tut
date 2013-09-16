@@ -63,7 +63,6 @@ Contents
    optimization
    idiomatic
    slices
-   const
    meta
    memory
    c

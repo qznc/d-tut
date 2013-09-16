@@ -6,6 +6,17 @@ so there is not that much experience about best practices.
 Nevertheless, due to runtime and standard library
 certain characteristics can be considered idiomatic.
 
+Constness
+---------
+
+D provides ``const`` and ``immutable`` keywords.
+
+Aim for const input and immutable output.
+
+.. seealso::
+
+   `Const FAQ <http://dlang.org/const-faq.html>`_
+
 Ranges
 ------
 
