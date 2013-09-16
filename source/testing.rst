@@ -4,7 +4,7 @@ Testing
 D provides a ``unittest`` keyword which enables you,
 to put tests right next to functions.
 
-.. code-block: d
+.. code-block:: d
 
    int twice(int x) { return x+x; }
 
