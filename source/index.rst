@@ -58,9 +58,9 @@ Contents
    philosophy
    basics
    debugging
-   optimization
    testing
    documentation
+   optimization
    slices
    const
    ranges
