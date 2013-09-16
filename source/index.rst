@@ -61,9 +61,9 @@ Contents
    testing
    documentation
    optimization
+   idiomatic
    slices
    const
-   ranges
    meta
    memory
    c

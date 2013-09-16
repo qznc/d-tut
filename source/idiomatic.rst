@@ -1,5 +1,13 @@
+Idiomatic D
+===========
+
+The D community is relatively young and small,
+so there is not that much experience about best practices.
+Nevertheless, due to runtime and standard library
+certain characteristics can be considered idiomatic.
+
 Ranges
-======
+------
 
 Instead of iterators,
 D promotes ranges,
@@ -22,5 +30,12 @@ then ``sort`` can perform in-place over three distinct arrays.
 .. seealso::
   `std.range <http://dlang.org/phobos/std_range.html>`_,
   `On Iteration <http://www.informit.com/articles/printerfriendly.aspx?p=1407357&rll=1>`_,
-  `Component Programming with Ranges <http://wiki.dlang.org/Component_programming_with_ranges>`_
+  `Component Programming with Ranges <http://wiki.dlang.org/Component_programming_with_ranges>`_,
+  `Ranges by Ali Çehreli <http://ddili.org/ders/d.en/ranges.html>`_
 
+Compile Time Function Evaluation
+--------------------------------
+
+Since D allows to call certain D code at compile time,
+a library write should enable her functions for compile time evaluation.
+This often means to write code according to the functional programming paradigm.
