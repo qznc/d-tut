@@ -17,6 +17,11 @@ Aim for const input and immutable output.
 
    `Const FAQ <http://dlang.org/const-faq.html>`_
 
+Purity
+------
+
+Try to make your functions ``pure`` and ``nothrow`` and ``@safe``.
+
 Ranges
 ------
 
@@ -37,6 +42,13 @@ and ``chain`` wraps multiples range into one.
 If ``a``, ``b``, and ``c`` are random access arrays,
 then ``sort`` can perform in-place over three distinct arrays.
 
+This tutorial will not explore ranges deeper,
+because the topic is quite big.
+Instead, there are a few links.
+
+   I think ranges are really cool, and well deserving of a book treatment. Someone should write it.
+   – `Andrei Alexandrescu <http://www.reddit.com/r/IAmA/comments/1nl9at/i_am_a_member_of_facebooks_hhvm_team_a_c_and_d/ccjly9n>`_
+
 
 .. seealso::
   `std.range <http://dlang.org/phobos/std_range.html>`_,
@@ -50,3 +62,6 @@ Compile Time Function Evaluation
 Since D allows to call certain D code at compile time,
 a library write should enable her functions for compile time evaluation.
 This often means to write code according to the functional programming paradigm.
+
+Scope Guards
+------------

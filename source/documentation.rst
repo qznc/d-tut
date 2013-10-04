@@ -2,7 +2,7 @@ Documentation
 =============
 
 As a programmer, you are probably used to API documentations,
-like JavaDoc, or DoxyGen.
+like JavaDoc or DoxyGen.
 The D compiler has this functionality built in with the ``-D`` switch.
 
 Unittest as Examples

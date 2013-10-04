@@ -17,4 +17,8 @@ and there are subtle differences as well as shortcomings in LDC and GDC.
 Benchmarking
 ------------
 
+Since not every optimization can be performed by a compiler,
+programmers are often need to tune their code.
+Since guessing is very often wrong,
+benchmarking is essential.
 D comes with ``std.datetime.benchmark`` included.

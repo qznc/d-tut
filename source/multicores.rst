@@ -4,7 +4,8 @@ Multicores
 Since computers with multiple cores are the norm today,
 let us discuss how this can be exploited with D.
 
-While concurrency and parallelism are actually different concepts,
+While concurrency and parallelism are
+`actually different concepts <http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference>`_,
 we will not discuss them separately,
 because programmers usually encounter them at same time anyways.
 However, this means we only provide an overview here.

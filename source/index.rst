@@ -1,8 +1,8 @@
 
-Pragmatic D Tutorial: Welcome
-=============================
+Pragmatic D Tutorial
+====================
 
-This is an introduction to the
+This is a pragmatic introduction to the
 `D Programming Language <http://dlang.org/>`_.
 
 Audience
