@@ -20,3 +20,8 @@ Base64
 
 Dates and Times and Durations
 -----------------------------
+
+Networking
+----------
+
+Basically, curl bindings.

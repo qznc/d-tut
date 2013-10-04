@@ -1,4 +1,0 @@
-Networking
-==========
-
-Basically, curl bindings.

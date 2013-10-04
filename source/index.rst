@@ -67,8 +67,8 @@ Contents
    memory
    c
    multicores
+   stdlib
    unicode
-   networking
    ide
    gui
    next
