@@ -14,11 +14,18 @@ but LDC uses LLVM and GDC the GCC backend.
 Nevertheless, dmd is the reference compiler
 and there are subtle differences as well as shortcomings in LDC and GDC.
 
+Profiling
+---------
+
+Since not every optimization can be performed by a compiler,
+programmers often need to tune their code.
+Since guessing is very often wrong,
+profiling is necessary to find the hot spots in your code.
+Use dmds ``-profile``.
+
 Benchmarking
 ------------
 
-Since not every optimization can be performed by a compiler,
-programmers are often need to tune their code.
-Since guessing is very often wrong,
+When optimizing a certain hotspot,
 benchmarking is essential.
 D comes with ``std.datetime.benchmark`` included.

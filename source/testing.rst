@@ -4,14 +4,9 @@ Testing
 D provides a ``unittest`` keyword which enables you,
 to put tests right next to functions.
 
-.. code-block:: d
 
-   int twice(int x) { return x+x; }
-
-   unittest {
-      assert (twice(-1) == -2);
-      assert (twice(2) == 4);
-   }
+.. literalinclude:: ../examplecode/unittestexample.d
+   :language: d
 
 Those code blocks are ignored by default.
 If dmd gets the ``-unittest`` argument,
@@ -27,3 +22,38 @@ the tests are compiled and executed before ``main``.
    to test by hand the first time round.
    -- `H. S. Teoh <http://forum.dlang.org/thread/CAJ85NXAu+fKDeq22-=Bjc0jn5KPni5-dpg1EDWA3MqJwKFk+hg@mail.gmail.com#post-mailman.1371.1371919343.13711.digitalmars-d:40puremagic.com>`_
 
+Another useful argument to dmd is ``-main``
+for testing libraries.
+It inserts an empty main function into the program,
+which is necessary for execution
+and runs the unittests before.
+
+Coverage
+--------
+
+Another aspect of testing is the coverage
+and dmd provides the ``-cov`` argument.
+For the program above,
+the following file is generated during unittesting:
+
+.. code-block:: txt
+
+       |/** @returns the argument times two */
+      2|int twice(int x) { return x+x; }
+       |
+       |/** for example */
+       |unittest {
+      1|  assert (twice(-1) == -2);
+      1|  assert (twice(2) == 4);
+       |}
+    examplecode/unittestexample.d is 100% covered
+
+For continuous testing,
+you can give ``-cov`` a parameter for a minimum coverage.
+
+Advanced Unit Tests
+-------------------
+
+While D has builtin support for unit testing,
+there is no support for advanced techniques like mockups,
+setup, or teardown routines.

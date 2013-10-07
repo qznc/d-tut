@@ -39,3 +39,17 @@ they are run in parallel as well.
 
 .. literalinclude:: ../examplecode/tasks.d
    :language: d
+
+Synchronization
+---------------
+
+Once you have parallelism,
+usually concurrency arises and the need for synchronization.
+Of course,
+D provides the ususal suspects:
+Locks,
+semaphores,
+atomic variables.
+
+Memory Model
+------------
