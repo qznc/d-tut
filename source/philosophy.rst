@@ -1,11 +1,7 @@
 Philosophy
 ==========
 
-To describe D in one sentence:
-
-   D is what C++ wanted to be.
-
-The strong focus on C++ means to inherit parts of its philosophy.
+D is greatly inspired by C++ and inherit parts of its philosophy.
 Like C++, D provides powerful abstraction mechanisms
 without sacrificing performance.
 If you are looking for a better C++,

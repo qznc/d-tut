@@ -47,7 +47,9 @@ There is ``delete`` for manual deallocation.
 You could also access ``malloc`` and ``free`` from libc directly
 and thus circumvent the garbage collector.
 D provides all mechanisms for RAII like C++.
+
 There is no compiler/language support for Reference Counting.
+However, you could implement the necessary boilerplate with structs yourself.
 
 .. seealso::
    http://dlang.org/memory.html
