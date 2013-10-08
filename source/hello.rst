@@ -36,7 +36,7 @@ the ``rdmd`` wrapper allows to compile-and-execute directly.
    Hello World!
 
 The nice fact about ``rdmd`` is that it finds additional files automatically
-and links them,
+and compiles them in,
 whereas ``dmd`` only compiles the arguments.
 Hence, ``rdmd`` serves as a simplistic build tool,
 such that you might not even need something like a Makefile.

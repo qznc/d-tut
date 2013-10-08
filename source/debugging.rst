@@ -15,6 +15,17 @@ Run-time Errors
 Run-time errors means that the compiled program
 does not behave like intended.
 
+Stack-traces
+^^^^^^^^^^^^
+
+D has exceptions and you get a stack trace,
+if an exception is not caught.
+Of course, being a system language,
+you can break the type system for arbitrary effects,
+but most parts of the language are safe
+and you should get good error message.
+
+
 Printf Debugging
 ^^^^^^^^^^^^^^^^
 

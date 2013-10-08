@@ -31,7 +31,7 @@ Critique
 
 Sometimes D is criticised,
 because it is not *simple* language,
-in contrast to Go, Rust, Lisp, or Scala.
+in contrast to Go, Lisp, Javascript, or Forth.
 However, a D programmer sees no problem
 and actually likes his big toolbox.
 
