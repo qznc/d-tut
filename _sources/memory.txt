@@ -9,8 +9,8 @@ and you can program without memory worries like in Java.
 
    Since you are reading this tutorial,
    you are obviously not an experienced D programmer.
-   **Just use the garbage collector!**
-   The rest of this section is only provided
+   **Use the garbage collector!**
+   The rest of this section is provided
    to show possibilities.
 
 Garbage Collector Tuning
@@ -22,6 +22,9 @@ In this case D provides various ways to fix this.
 You could avoid allocation in the hot spots of your code.
 This is probably a good idea,
 no matter what kind of memory management you use.
+
+  I avoid the GC in D too, and never had any major problems, only inconvenience. Used strategically, it can be a convenience in certain situations, and just as in C++, if your specific use case prohibits use of the GC, it can be avoided. My practical experience with D has shown that I can always achieve identical performance to C++
+  – `Manu Evans <http://www.reddit.com/r/programming/comments/1nxs2i/the_state_of_rust_08/ccnefe7>`_
 
 You can disable garbage collection temporarily.
 
@@ -52,4 +55,5 @@ There is no compiler/language support for Reference Counting.
 However, you could implement the necessary boilerplate with structs yourself.
 
 .. seealso::
-   http://dlang.org/memory.html
+   `Memory Management <http://dlang.org/memory.html>`_,
+   `std.typecons.RefCounted <http://dlang.org/phobos/std_typecons.html#.RefCounted>`_

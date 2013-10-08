@@ -40,6 +40,23 @@ they are run in parallel as well.
 .. literalinclude:: ../examplecode/tasks.d
    :language: d
 
+This is the same mechanism that is used by
+Google Go, Rust, Erlang, and others.
+Try the `Vibe.d <http://vibed.org/>`_ web framework for an integrated environment in this style.
+However, D is not specialized for this
+and permits some mistakes.
+If a task calls a blocking function (e.g. read a file),
+the executing thread blocks.
+Since the maximal parallelism is defined by number of running threads in the underlying pool,
+this might leave a core idle,
+even if there are more tasks to run.
+Specialized languages can simply start another thread,
+to compensate for the blocking.
+In D pool size maintenance must be done manually
+and is probably forgotten in most cases.
+You are fine,
+if you can restrict yourself to asynchronous IO.
+
 Synchronization
 ---------------
 

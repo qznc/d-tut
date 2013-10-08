@@ -57,7 +57,48 @@
 <h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
 <p>As a programmer, you are probably used to API documentations,
 like JavaDoc or DoxyGen.
-The D compiler has this functionality built in with the <tt class="docutils literal"><span class="pre">-D</span></tt> switch.</p>
+The D compiler has this Ddoc functionality built in with the <tt class="docutils literal"><span class="pre">-D</span></tt> switch.</p>
+<div class="section" id="ddoc-examples">
+<h2>Ddoc Examples<a class="headerlink" href="#ddoc-examples" title="Permalink to this headline">¶</a></h2>
+<p>For Ddoc comments normal comments must be extended with one more character.
+For example <tt class="docutils literal"><span class="pre">/*</span> <span class="pre">*/</span></tt> becomes <tt class="docutils literal"><span class="pre">/**</span> <span class="pre">*/</span></tt>.
+The normal comments are ignored by the documentation generator.
+Since API documentation of functions is probably the most important use case,
+here is an example.</p>
+<div class="highlight-d"><div class="highlight"><pre><span class="cm">/***********************************</span>
+<span class="cm"> * computes the foobar coefficient under moon influence</span>
+<span class="cm"> * Params:</span>
+<span class="cm"> *  x = the trope factor</span>
+<span class="cm"> *   but only necessary for edge cases</span>
+<span class="cm"> *  y = determines the slope</span>
+<span class="cm"> * Returns: foobar coefficient</span>
+<span class="cm"> * Throws: IOException if reading moon file fails</span>
+<span class="cm"> * See_also: bar, http://dlang.org/ddoc.html</span>
+<span class="cm"> */</span>
+
+<span class="kt">int</span> <span class="n">foo</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ddoc also comes with a simple macro language
+for advanced purposes.
+It can be used as a markup language for longer explanations.
+However, it is also used to generate most of the D website, for example.</p>
+<p>Put the example above into <tt class="docutils literal"><span class="pre">foo.d</span></tt>,
+then <tt class="docutils literal"><span class="pre">dmd</span> <span class="pre">-D</span> <span class="pre">foo.d</span></tt> will generate a <tt class="docutils literal"><span class="pre">foo.html</span></tt> file with API documentation.
+This is pretty raw, though.
+For some nice looking documentation,
+you have to extend the basic Ddoc templates.
+Alternatively, the macros can be overriden to produce XML
+or any other format.</p>
+</div>
+<div class="section" id="beautiful-api-documentation">
+<h2>Beautiful API Documentation<a class="headerlink" href="#beautiful-api-documentation" title="Permalink to this headline">¶</a></h2>
+<p>If you a more refined tool to produce API documenation for your project,
+then check out <a class="reference external" href="https://github.com/rejectedsoftware/ddox">ddox</a>.</p>
+</div>
 <div class="section" id="unittest-as-examples">
 <h2>Unittest as Examples<a class="headerlink" href="#unittest-as-examples" title="Permalink to this headline">¶</a></h2>
 <p>Unittests with comments also show up in the documentation.
@@ -65,7 +106,7 @@ They serve as examples.
 In contrast to examples within the doc-comment,
 these examples are executed as part of the testing process,
 which means they are actually checked for errors.</p>
-<div class="highlight-d"><div class="highlight"><pre><span class="cm">/** @returns the argument times two */</span>
+<div class="highlight-d"><div class="highlight"><pre><span class="cm">/** Returns: argument times two */</span>
 <span class="kt">int</span> <span class="n">twice</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="p">+</span><span class="n">x</span><span class="p">;</span> <span class="p">}</span>
 
 <span class="cm">/** for example */</span>
@@ -74,6 +115,11 @@ which means they are actually checked for errors.</p>
   <span class="k">assert</span> <span class="p">(</span><span class="n">twice</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">==</span> <span class="mi">4</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://dlang.org/ddoc.html">Documentation Generator</a>,
+<a class="reference external" href="http://vibed.org/temp/d-programming-language.org/phobos/index.html">Ddox variant of the standard library documentation</a></p>
 </div>
 </div>
 </div>
@@ -92,6 +138,8 @@ which means they are actually checked for errors.</p>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ddoc-examples">Ddoc Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#beautiful-api-documentation">Beautiful API Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#unittest-as-examples">Unittest as Examples</a></li>
 </ul>
 </li>
@@ -143,7 +191,7 @@ which means they are actually checked for errors.</p>
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-10-08.
+      Last updated on 2013-10-10.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
         </div>

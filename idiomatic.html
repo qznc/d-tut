@@ -61,16 +61,56 @@ Nevertheless, due to runtime and standard library
 certain characteristics can be considered idiomatic.</p>
 <div class="section" id="constness">
 <h2>Constness<a class="headerlink" href="#constness" title="Permalink to this headline">¶</a></h2>
-<p>D provides <tt class="docutils literal"><span class="pre">const</span></tt> and <tt class="docutils literal"><span class="pre">immutable</span></tt> keywords.</p>
-<p>Aim for const input and immutable output.</p>
+<p>D provides <tt class="docutils literal"><span class="pre">const</span></tt> and <tt class="docutils literal"><span class="pre">immutable</span></tt> keywords.
+While const means, I cannot change the value,
+immutable means nobody can change the value,
+which is a stronger guarantee.</p>
+<p>You can cast immutable to const, but not in reverse.
+Also, you can cast mutable to const.
+This means functions taking const arguments,
+take mutable and immutable values.</p>
+<p>In contrast to C, <tt class="docutils literal"><span class="pre">const</span></tt> is transitive,
+which means anything you get out of a const is also const.
+In other words,
+a const object cannot have mutable members.</p>
+<div class="section" id="when-to-use-what">
+<h3>When to use what?<a class="headerlink" href="#when-to-use-what" title="Permalink to this headline">¶</a></h3>
+<p>Here are some guidelines.
+Note the &#8220;should&#8221;,
+because no guideline is correct in all cases.</p>
+<ul class="simple">
+<li>Arguments should be const, so mutable and immutable values can be given.
+However, do not copy arguments to make them mutable or immutable,
+instead declare the argument mutable or immutable from the start
+and let the caller make the copy.</li>
+<li>Return values, which are freshly constructed, should never be const, but mutable or immutable.</li>
+<li>Data structures should not restrict themselves to be mutable, const, or immutable.
+The user should decide about mutability.</li>
+</ul>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://dlang.org/const-faq.html">Const FAQ</a></p>
+<p class="last"><a class="reference external" href="http://dlang.org/const-faq.html">Const FAQ</a>,
+<a class="reference external" href="http://dlang.org/const3.html">Const and Immutable</a>,
+<a class="reference external" href="http://dconf.org/2013/talks/cehreli.html">Copy and Move Semantics in D, talk by Ali Çehreli</a></p>
+</div>
 </div>
 </div>
 <div class="section" id="purity">
 <h2>Purity<a class="headerlink" href="#purity" title="Permalink to this headline">¶</a></h2>
 <p>Try to make your functions <tt class="docutils literal"><span class="pre">pure</span></tt> and <tt class="docutils literal"><span class="pre">nothrow</span></tt> and <tt class="docutils literal"><span class="pre">&#64;safe</span></tt>.</p>
+<ul class="simple">
+<li>Pure means your function does not use or change mutable global state
+except what is available from the arguments.
+If in addition the arguments are not mutable, a function is called &#8220;strongly pure&#8221;.</li>
+<li>Nothrow means your function will never throw an exception.</li>
+<li>Safe means your function cannot break the type system via unsafe casts or inline assembly.</li>
+</ul>
+<p>These qualifiers are required of called functions as well.
+For example, a pure function can only call pure functions.</p>
+<p>For the record,
+everybody mostly agrees that these parameters should be the default
+and some &#8220;impure&#8221;, &#8220;throw&#8221;, and &#8220;unsafe&#8221; attributes with inverse meaning would be better.
+However, changing it would break too much code at this point.</p>
 </div>
 <div class="section" id="ranges">
 <h2>Ranges<a class="headerlink" href="#ranges" title="Permalink to this headline">¶</a></h2>
@@ -183,7 +223,7 @@ This often means to write code according to the functional programming paradigm.
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-10-08.
+      Last updated on 2013-10-10.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
         </div>
