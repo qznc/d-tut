@@ -2,7 +2,7 @@ Philosophy
 ==========
 
 D is greatly inspired by C++ and inherit parts of its philosophy.
-Like C++, D provides powerful abstraction mechanisms
+D provides powerful abstraction mechanisms
 without sacrificing performance.
 If you are looking for a better C++,
 you should feel at home with D.

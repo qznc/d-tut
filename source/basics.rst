@@ -58,6 +58,7 @@ D does various things different and that will take some time to adopt.
 
 Instead of a syntax extension like LINQ,
 D provides a lots of similar mechanisms in the standard library.
+Instead of ``using``, D provides scope guards.
 
 For Python-Ruby-Perl-Javascript-Lua Programmers
 ------------------------------------------

@@ -10,8 +10,23 @@ Constness
 ---------
 
 D provides ``const`` and ``immutable`` keywords.
+While const means, I cannot change the value,
+immutable means nobody can change the value,
+which is a stronger guarantee.
 
+You can cast immutable to const, but not in reverse.
+Also, you can cast mutable to const.
+This means functions taking const arguments,
+take mutable and immutable values.
+
+In contrast to C, ``const`` is transitive,
+which means anything you get out of a const is also const.
+
+When to use what?
 Aim for const input and immutable output.
+Struct fields should be mutable,
+so the user can decide about mutability,
+but referencing immutable or const value is fine.
 
 .. seealso::
 
