@@ -21,21 +21,43 @@ take mutable and immutable values.
 
 In contrast to C, ``const`` is transitive,
 which means anything you get out of a const is also const.
+In other words,
+a const object cannot have mutable members.
 
 When to use what?
-Aim for const input and immutable output.
-Struct fields should be mutable,
-so the user can decide about mutability,
-but referencing immutable or const value is fine.
+~~~~~~~~~~~~~~~~~
+
+Here are some guidelines.
+Note the "should",
+because no guideline is correct in all cases.
+
+* Arguments should be const, so mutable and immutable values can be given.
+  However, do not copy arguments to make them mutable or immutable,
+  instead declare the argument mutable or immutable from the start
+  and let the caller make the copy.
+* Return values, which are freshly constructed, should never be const, but mutable or immutable.
+* Data structures should not restrict themselves to be mutable, const, or immutable.
+  The user should decide about mutability.
 
 .. seealso::
 
-   `Const FAQ <http://dlang.org/const-faq.html>`_
+   `Const FAQ <http://dlang.org/const-faq.html>`_,
+   `Const and Immutable <http://dlang.org/const3.html>`_,
+   `Copy and Move Semantics in D, talk by Ali Çehreli <http://dconf.org/2013/talks/cehreli.html>`_
 
 Purity
 ------
 
 Try to make your functions ``pure`` and ``nothrow`` and ``@safe``.
+
+* Pure means your function does not use or change mutable global state
+  except what is available from the arguments.
+  If in addition the arguments are not mutable, a function is called "strongly pure".
+* Nothrow means your function will never throw an exception.
+* Safe means your function cannot break the type system via unsafe casts or inline assembly.
+
+These qualifiers are required of called functions as well.
+For example, a pure function can only call pure functions.
 
 Ranges
 ------
