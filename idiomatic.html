@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Idiomatic D &mdash; d-tutorial 0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="d-tutorial 0.2 documentation" href="index.html" />
+    <link rel="next" title="Slices" href="slices.html" />
+    <link rel="prev" title="Optimization" href="optimization.html" /> 
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="headertitle"><a
+          href="index.html">d-tutorial 0.2 documentation</a></div>
+        <div class="rel">
+          <a href="optimization.html" title="Optimization"
+             accesskey="P">previous</a> |
+          <a href="slices.html" title="Slices"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="idiomatic-d">
+<h1>Idiomatic D<a class="headerlink" href="#idiomatic-d" title="Permalink to this headline">¶</a></h1>
+<p>The D community is relatively young and small,
+so there is not that much experience about best practices.
+Nevertheless, due to runtime and standard library
+certain characteristics can be considered idiomatic.</p>
+<div class="section" id="constness">
+<h2>Constness<a class="headerlink" href="#constness" title="Permalink to this headline">¶</a></h2>
+<p>D provides <tt class="docutils literal"><span class="pre">const</span></tt> and <tt class="docutils literal"><span class="pre">immutable</span></tt> keywords.</p>
+<p>Aim for const input and immutable output.</p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://dlang.org/const-faq.html">Const FAQ</a></p>
+</div>
+</div>
+<div class="section" id="purity">
+<h2>Purity<a class="headerlink" href="#purity" title="Permalink to this headline">¶</a></h2>
+<p>Try to make your functions <tt class="docutils literal"><span class="pre">pure</span></tt> and <tt class="docutils literal"><span class="pre">nothrow</span></tt> and <tt class="docutils literal"><span class="pre">&#64;safe</span></tt>.</p>
+</div>
+<div class="section" id="ranges">
+<h2>Ranges<a class="headerlink" href="#ranges" title="Permalink to this headline">¶</a></h2>
+<p>Instead of iterators,
+D promotes ranges,
+which can be described as a pair of iterators.
+Ranges capture the concept of sequential access,
+which is available for arrays, lists, files, and sockets.
+There are various kinds of ranges,
+depending, for example, on whether random access is possible.</p>
+<p>For an example,
+consider the expression <tt class="docutils literal"><span class="pre">sort(chain(a,b,c))</span></tt>,
+where <tt class="docutils literal"><span class="pre">sort</span></tt> and <tt class="docutils literal"><span class="pre">chain</span></tt> are ordinary functions from the standard library.
+Like the name suggests,
+<tt class="docutils literal"><span class="pre">sort</span></tt> is the sorting function
+and <tt class="docutils literal"><span class="pre">chain</span></tt> wraps multiples range into one.
+If <tt class="docutils literal"><span class="pre">a</span></tt>, <tt class="docutils literal"><span class="pre">b</span></tt>, and <tt class="docutils literal"><span class="pre">c</span></tt> are random access arrays,
+then <tt class="docutils literal"><span class="pre">sort</span></tt> can perform in-place over three distinct arrays.</p>
+<p>This tutorial will not explore ranges deeper,
+because the topic is quite big.
+Instead, there are a few links.</p>
+<blockquote>
+<div>I think ranges are really cool, and well deserving of a book treatment. Someone should write it.
+– <a class="reference external" href="http://www.reddit.com/r/IAmA/comments/1nl9at/i_am_a_member_of_facebooks_hhvm_team_a_c_and_d/ccjly9n">Andrei Alexandrescu</a></div></blockquote>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://dlang.org/phobos/std_range.html">std.range</a>,
+<a class="reference external" href="http://www.informit.com/articles/printerfriendly.aspx?p=1407357&amp;rll=1">On Iteration</a>,
+<a class="reference external" href="http://wiki.dlang.org/Component_programming_with_ranges">Component Programming with Ranges</a>,
+<a class="reference external" href="http://ddili.org/ders/d.en/ranges.html">Ranges by Ali Çehreli</a></p>
+</div>
+</div>
+<div class="section" id="compile-time-function-evaluation">
+<h2>Compile Time Function Evaluation<a class="headerlink" href="#compile-time-function-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>Since D allows to call certain D code at compile time,
+a library write should enable her functions for compile time evaluation.
+This often means to write code according to the functional programming paradigm.</p>
+</div>
+<div class="section" id="scope-guards">
+<h2>Scope Guards<a class="headerlink" href="#scope-guards" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Table Of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hello.html">Hello World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Idiomatic D</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#constness">Constness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#purity">Purity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ranges">Ranges</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compile-time-function-evaluation">Compile Time Function Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scope-guards">Scope Guards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="slices.html">Slices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta.html">Meta Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory.html">Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c.html">C Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multicores.html">Multicores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ide.html">IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="next.html">What Next?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fineprint.html">Fineprint</a></li>
+</ul>
+
+          <h3 style="margin-top: 1.5em;">Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          <p class="searchtip" style="font-size: 90%">
+            Enter search terms or a module, class or function name.
+          </p>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="optimization.html" title="Optimization"
+             >previous</a> |
+          <a href="slices.html" title="Slices"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+            <br/>
+            <a href="_sources/idiomatic.txt"
+               rel="nofollow">Show Source</a>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2013, Andreas Zwinkau.
+      Last updated on 2013-10-08.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
