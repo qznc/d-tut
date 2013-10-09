@@ -57,3 +57,9 @@ Advanced Unit Tests
 While D has builtin support for unit testing,
 there is no support for advanced techniques like mockups,
 setup, or teardown routines.
+There are advance test frameworks available, though.
+
+.. seealso::
+
+   `DUnit <https://github.com/nomad-software/dunit>`_,
+   `Unit-threaded <https://github.com/atilaneves/unit-threaded>`_

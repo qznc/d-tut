@@ -98,8 +98,8 @@ html_theme = 'agogo'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-  "pagewidth":     "50em",
-  "documentwidth": "30em",
+  "pagewidth":     "55em",
+  "documentwidth": "35em",
   "sidebarwidth":  "20em",
   "textalign":     "left",
 }

@@ -59,6 +59,11 @@ Try to make your functions ``pure`` and ``nothrow`` and ``@safe``.
 These qualifiers are required of called functions as well.
 For example, a pure function can only call pure functions.
 
+For the record,
+everybody mostly agrees that these parameters should be the default
+and some "impure", "throw", and "unsafe" attributes with inverse meaning would be better.
+However, changing it would break too much code at this point.
+
 Ranges
 ------
 

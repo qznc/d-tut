@@ -9,8 +9,8 @@ and you can program without memory worries like in Java.
 
    Since you are reading this tutorial,
    you are obviously not an experienced D programmer.
-   **Just use the garbage collector!**
-   The rest of this section is only provided
+   **Use the garbage collector!**
+   The rest of this section is provided
    to show possibilities.
 
 Garbage Collector Tuning

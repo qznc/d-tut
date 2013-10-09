@@ -1,4 +1,4 @@
-/** @returns the argument times two */
+/** Returns: argument times two */
 int twice(int x) { return x+x; }
 
 /** for example */
