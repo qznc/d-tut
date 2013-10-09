@@ -32,18 +32,25 @@ Note the "should",
 because no guideline is correct in all cases.
 
 * Arguments should be const, so mutable and immutable values can be given.
-  However, do not copy arguments to make them mutable or immutable,
-  instead declare the argument mutable or immutable from the start
-  and let the caller make the copy.
+
+  * However, do not copy arguments to make them mutable or immutable,
+    instead declare the argument mutable or immutable from the start
+    and let the caller make the copy.
+  * If a function is not thread-safe due to const arguments,
+    either explicitly document this or make the arguments immutable.
+
 * Return values, which are freshly constructed, should never be const, but mutable or immutable.
 * Data structures should not restrict themselves to be mutable, const, or immutable.
   The user should decide about mutability.
+  Test this.
+  Otherwise future changes could break users.
 
 .. seealso::
 
    `Const FAQ <http://dlang.org/const-faq.html>`_,
    `Const and Immutable <http://dlang.org/const3.html>`_,
-   `Copy and Move Semantics in D, talk by Ali Çehreli <http://dconf.org/2013/talks/cehreli.html>`_
+   `Copy and Move Semantics in D, talk by Ali Çehreli <http://dconf.org/2013/talks/cehreli.html>`_,
+   `Discussion on these guidelines <http://forum.dlang.org/post/sdefkajobwcfikkelxbr@forum.dlang.org>`_
 
 Purity
 ------
