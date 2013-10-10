@@ -22,7 +22,9 @@ More limited than C interop, but possible to a certain extend.
 
 .. seealso::
 
-   `Interfacing to C++ <http://dlang.org/cpp_interface.html>`_
+   `Interfacing to C++ <http://dlang.org/cpp_interface.html>`_,
+   `Using D Alongside a Game Engine, DConf 2013 talk by Manu Evans <http://dconf.org/2013/talks/evans_1.html>`_
+
 
 Porting Code
 ------------

@@ -61,6 +61,10 @@ it will also print "World".
    Be careful not to put necessary code into debug,
    otherwise your release build might behave differently.
 
+Useful (and probably necessary) is the ``text`` function
+from `std.conv <http://dlang.org/phobos/std_conv.html>`_,
+which converts anything to a string.
+
 Logging
 ^^^^^^^
 

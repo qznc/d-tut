@@ -73,13 +73,46 @@ which improves development productivity.</p>
 programmers often need to tune their code.
 Since guessing is very often wrong,
 profiling is necessary to find the hot spots in your code.
-Use dmds <tt class="docutils literal"><span class="pre">-profile</span></tt>.</p>
+Use dmds <tt class="docutils literal"><span class="pre">-profile</span></tt>,
+which instruments the code.
+When the executable is run, a <tt class="docutils literal"><span class="pre">trace.log</span></tt> is generated.
+It contains data somewhat similar to the following.</p>
+<div class="highlight-txt"><pre>------------------
+[... bla bla many lines of raw information ...]
+
+=== Timer Is 3579545 Ticks/Sec, Times are in Microsecs ===
+
+   Num    Tree   Func   Per
+   Calls  Time   Time   Call
+
+   2     77773  77742  38871  std.stdio.writeln(immutable(char)[])
+   1    231962  75516  75516  std.concurrency.MessageBox.get...
+   1     71344  70125  70125  std.concurrency._send(...)
+   1     50818  50818  50818  std.stdio.File.LockingTextWriter...
+
+[... bla bla more data ...]</pre>
+</div>
+<p>The table shown above displays the most time consuming functions of the program.
+Apparently, <tt class="docutils literal"><span class="pre">writeln</span></tt> dominates with a total of 77742 msecs over 2 calls.
+A single calls took 38871 msecs on average.
+The <tt class="docutils literal"><span class="pre">MessageBox.get</span></tt> took a little bit less total time,``
+however the &#8220;Tree Time&#8221; is 231962 msecs,
+which is the sum of the time of called functions.</p>
 </div>
 <div class="section" id="benchmarking">
 <h2>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this headline">¶</a></h2>
 <p>When optimizing a certain hotspot,
 benchmarking is essential.
-D comes with <tt class="docutils literal"><span class="pre">std.datetime.benchmark</span></tt> included.</p>
+D comes with <tt class="docutils literal"><span class="pre">std.datetime.benchmark</span></tt> and <tt class="docutils literal"><span class="pre">comparingBenchmark</span></tt> included,
+which can be used for simple comparisons.</p>
+<div class="highlight-d"><div class="highlight"><pre><span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+<span class="kt">void</span> <span class="n">f0</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">void</span> <span class="n">f1</span><span class="p">()</span> <span class="p">{</span><span class="k">auto</span> <span class="n">b</span> <span class="p">=</span> <span class="n">a</span><span class="p">;}</span>
+<span class="kt">void</span> <span class="n">f2</span><span class="p">()</span> <span class="p">{</span><span class="k">auto</span> <span class="n">b</span> <span class="p">=</span> <span class="n">to</span><span class="p">!(</span><span class="nb">string</span><span class="p">)(</span><span class="n">a</span><span class="p">);}</span>
+<span class="k">auto</span> <span class="n">r</span> <span class="p">=</span> <span class="n">benchmark</span><span class="p">!(</span><span class="n">f0</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">)(</span><span class="mi">10_000</span><span class="p">);</span>
+<span class="n">writefln</span><span class="p">(</span><span class="s">&quot;Milliseconds to call fun[0] n times: %s&quot;</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">msecs</span><span class="p">);</span>
+</pre></div>
+</div>
 </div>
 </div>
 

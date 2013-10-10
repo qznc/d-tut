@@ -57,20 +57,43 @@
 <h1>Standard Library: Short Tour<a class="headerlink" href="#standard-library-short-tour" title="Permalink to this headline">¶</a></h1>
 <p>This is a brief overview over the standard library Phobos,
 so you have an idea what is available.</p>
+<div class="section" id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<p>Basic algorithms like those in the standart template library of C++
+are found in <a class="reference external" href="http://dlang.org/phobos/std_algorithm.html">std.algorithm</a>.
+For example, <tt class="docutils literal"><span class="pre">sort</span></tt>, <tt class="docutils literal"><span class="pre">find</span></tt>, and <tt class="docutils literal"><span class="pre">map</span></tt>.
+Then there is <a class="reference external" href="http://dlang.org/phobos/std_functional.html">std.functional</a>
+with <tt class="docutils literal"><span class="pre">curry</span></tt>, <tt class="docutils literal"><span class="pre">memoize</span></tt> and other helpers for functional programming.
+Useful helper functions ilike <tt class="docutils literal"><span class="pre">split</span></tt> for the builtin arrays can be found in
+<a class="reference external" href="http://dlang.org/phobos/std_array.html">std.array</a>.</p>
+</div>
 <div class="section" id="file-formats">
 <h2>File Formats<a class="headerlink" href="#file-formats" title="Permalink to this headline">¶</a></h2>
-<p>JSON</p>
-<p>XML</p>
-<p>CSV</p>
-<p>Zip</p>
-<p>Base64</p>
+<p>The standard library contains the tools to handle various formats like
+<a class="reference external" href="http://dlang.org/phobos/std_json.html">JSON</a>,
+<a class="reference external" href="http://dlang.org/phobos/std_xml.html">XML</a>,
+<a class="reference external" href="http://dlang.org/phobos/std_csv.html">CSV</a>,
+<a class="reference external" href="http://dlang.org/phobos/std_zip.html">Zip</a>,
+<a class="reference external" href="http://dlang.org/phobos/std_base64.html">Base64</a>.
+Especially, for XML you might want to check out
+<a class="reference external" href="http://siegelord.github.io/Tango-D2/tango.text.xml.SaxParser.html">Tango&#8217;s XML parser</a> or
+<a class="reference external" href="http://forum.dlang.org/post/lzeqryvbhwescvxqdwbq&#64;forum.dlang.org">look for bindings</a>
+to your favorite C XML library.</p>
 </div>
 <div class="section" id="dates-and-times-and-durations">
 <h2>Dates and Times and Durations<a class="headerlink" href="#dates-and-times-and-durations" title="Permalink to this headline">¶</a></h2>
+<p>Basically, everything related to time is in
+<a class="reference external" href="http://dlang.org/phobos/std_datetime.html">std.datetime</a>:
+Dates, times, intervals, differences,
+parsing and formatting dates,
+even measuring and benchmarking.</p>
 </div>
 <div class="section" id="networking">
 <h2>Networking<a class="headerlink" href="#networking" title="Permalink to this headline">¶</a></h2>
-<p>Basically, curl bindings.</p>
+<p>For the basics, there is
+<a class="reference external" href="http://dlang.org/phobos/std_net_curl.html">std.net.curl</a>
+with bindings to the venerable
+<a class="reference external" href="http://curl.haxx.se/libcurl/">libcurl</a>.</p>
 </div>
 </div>
 
@@ -96,6 +119,7 @@ so you have an idea what is available.</p>
 <li class="toctree-l1"><a class="reference internal" href="c.html">C Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multicores.html">Multicores</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Standard Library: Short Tour</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#file-formats">File Formats</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dates-and-times-and-durations">Dates and Times and Durations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#networking">Networking</a></li>
@@ -141,7 +165,7 @@ so you have an idea what is available.</p>
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-10-10.
+      Last updated on 2013-10-13.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
         </div>
