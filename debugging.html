@@ -8,9 +8,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Debugging &mdash; d-tutorial 0.2 documentation</title>
+    <title>Debugging &mdash; Pragmatic D Tutorial</title>
     
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/marcelene.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="d-tutorial 0.2 documentation" href="index.html" />
+    <link rel="top" title="Pragmatic D Tutorial" href="index.html" />
     <link rel="next" title="Testing" href="testing.html" />
     <link rel="prev" title="Basics" href="basics.html" /> 
   </head>
@@ -33,7 +33,7 @@
     <div class="header-wrapper">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">d-tutorial 0.2 documentation</a></div>
+          href="index.html">Pragmatic D Tutorial</a></div>
         <div class="rel">
           <a href="basics.html" title="Basics"
              accesskey="P">previous</a> |
@@ -59,8 +59,14 @@
 <h2>Compile-time Errors<a class="headerlink" href="#compile-time-errors" title="Permalink to this headline">¶</a></h2>
 <p>Since D is comprehensive language,
 you will probably run into error messages from the compiler.
-Within template code,
-those error messages can easily become nearly incomprehensible.</p>
+Here are some explanations about their meaning.</p>
+<div class="section" id="error-t-is-used-as-a-type">
+<h3>Error: T is used as a type<a class="headerlink" href="#error-t-is-used-as-a-type" title="Permalink to this headline">¶</a></h3>
+<p>This T thing is not a type, but is used as such.
+Usually, this happens with templates.
+A template is not a type.
+You probably must instantiate T like <cite>T!int</cite> to fix the error.</p>
+</div>
 </div>
 <div class="section" id="run-time-errors">
 <h2>Run-time Errors<a class="headerlink" href="#run-time-errors" title="Permalink to this headline">¶</a></h2>

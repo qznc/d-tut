@@ -8,9 +8,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Idiomatic D &mdash; d-tutorial 0.2 documentation</title>
+    <title>Idiomatic D &mdash; Pragmatic D Tutorial</title>
     
-    <link rel="stylesheet" href="_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="_static/marcelene.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="d-tutorial 0.2 documentation" href="index.html" />
+    <link rel="top" title="Pragmatic D Tutorial" href="index.html" />
     <link rel="next" title="Slices" href="slices.html" />
     <link rel="prev" title="Optimization" href="optimization.html" /> 
   </head>
@@ -33,7 +33,7 @@
     <div class="header-wrapper">
       <div class="header">
         <div class="headertitle"><a
-          href="index.html">d-tutorial 0.2 documentation</a></div>
+          href="index.html">Pragmatic D Tutorial</a></div>
         <div class="rel">
           <a href="optimization.html" title="Optimization"
              accesskey="P">previous</a> |
@@ -79,19 +79,26 @@ a const object cannot have mutable members.</p>
 Note the &#8220;should&#8221;,
 because no guideline is correct in all cases.</p>
 <ul class="simple">
-<li>Arguments should be const, so mutable and immutable values can be given.
-However, do not copy arguments to make them mutable or immutable,
+<li>Arguments should be const, so mutable and immutable values can be given.<ul>
+<li>However, do not copy arguments to make them mutable or immutable,
 instead declare the argument mutable or immutable from the start
 and let the caller make the copy.</li>
+<li>If a function is not thread-safe due to const arguments,
+either explicitly document this or make the arguments immutable.</li>
+</ul>
+</li>
 <li>Return values, which are freshly constructed, should never be const, but mutable or immutable.</li>
 <li>Data structures should not restrict themselves to be mutable, const, or immutable.
-The user should decide about mutability.</li>
+The user should decide about mutability.
+Test this.
+Otherwise future changes could break users.</li>
 </ul>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://dlang.org/const-faq.html">Const FAQ</a>,
 <a class="reference external" href="http://dlang.org/const3.html">Const and Immutable</a>,
-<a class="reference external" href="http://dconf.org/2013/talks/cehreli.html">Copy and Move Semantics in D, talk by Ali Çehreli</a></p>
+<a class="reference external" href="http://dconf.org/2013/talks/cehreli.html">Copy and Move Semantics in D, talk by Ali Çehreli</a>,
+<a class="reference external" href="http://forum.dlang.org/post/sdefkajobwcfikkelxbr&#64;forum.dlang.org">Discussion on these guidelines</a></p>
 </div>
 </div>
 </div>
