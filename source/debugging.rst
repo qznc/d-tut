@@ -6,8 +6,15 @@ Compile-time Errors
 
 Since D is comprehensive language,
 you will probably run into error messages from the compiler.
-Within template code,
-those error messages can easily become nearly incomprehensible.
+Here are some explanations about their meaning.
+
+Error: T is used as a type
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This T thing is not a type, but is used as such.
+Usually, this happens with templates.
+A template is not a type.
+You probably must instantiate T like `T!int` to fix the error.
 
 Run-time Errors
 ---------------
