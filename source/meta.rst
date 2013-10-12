@@ -69,3 +69,7 @@ You can provide a grammar and at compile time an efficient parser is generated.
 
       Variable <- identifier
     `));
+
+.. seealso::
+
+   `Templates in D explained <http://nomad.so/2013/07/templates-in-d-explained/>`_
