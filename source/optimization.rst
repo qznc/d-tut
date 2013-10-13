@@ -38,10 +38,10 @@ It contains data somewhat similar to the following.
       Num    Tree   Func   Per
       Calls  Time   Time   Call
 
-      2     77773  77742  38871  std.stdio.writeln(immutable(char)[])
-      1    231962  75516  75516  std.concurrency.MessageBox.get...
-      1     71344  70125  70125  std.concurrency._send(...)
-      1     50818  50818  50818  std.stdio.File.LockingTextWriter...
+      2     77773  77742  38871 std.stdio.writeln(immutable(char)[])
+      1    231962  75516  75516 std.concurrency.MessageBox.get...
+      1     71344  70125  70125 std.concurrency._send(...)
+      1     50818  50818  50818 std.stdio.File.LockingTextWriter...
 
    [... bla bla more data ...]
 
