@@ -1,5 +1,5 @@
 /*
- * agogo.css_t
+ * marcelene.css_t
  * ~~~~~~~~~~~
  *
  * Sphinx stylesheet -- agogo theme.
@@ -35,17 +35,25 @@ div.header, div.content, div.footer {
   margin-right: auto;
 }
 
+div.footer-wrapper,
 div.header-wrapper {
-  background-color: #eee;
-  border-bottom: 3px solid #2e3436;
+  background-color: #fc7;
 }
 
+div.footer-wrapper { border-top:    3px solid #a60; }
+div.header-wrapper { border-bottom: 3px solid #a60; }
+
+h1 { color: #a60; }
 
 /* Default body styles */
 a { color: #00a; text-decoration: underline; }
 .seealso,
 a:visited { color: #000; }
 a:hover { color: #00f; }
+.footer a,
+.footer a:hover,
+.header a:hover,
+.header a { color: #000; }
 
 div.sidebar a,
 div.header a,
@@ -121,7 +129,6 @@ div.header {
 
 div.header .headertitle {
   font-size: 180%;
-  letter-spacing: .08em;
   margin-bottom: .8em;
 }
 
@@ -131,7 +138,6 @@ div.header div.rel {
 
 div.header div.rel a {
   color: ;
-  letter-spacing: .1em;
   text-transform: uppercase;
 }
 
@@ -200,7 +206,7 @@ div.document .descname {
 }
 
 div.document .docutils.literal {
-  background-color: #eeeeec;
+  background-color: #f4f4f4;
   padding: 1px;
 }
 
@@ -267,7 +273,7 @@ div.sidebar li.toctree-l2:last-child a {
 }
 
 div.sidebar li.toctree-l1.current a {
-  border-right: 5px solid ;
+  font-weight: bold;
 }
 
 div.sidebar li.toctree-l1.current li.toctree-l2 a {
@@ -286,15 +292,9 @@ div.sidebar input[type="submit"] {
 /* Footer */
 
 div.footer-wrapper {
-  background: ;
-  border-top: 4px solid #babdb6;
   padding-top: 10px;
   padding-bottom: 10px;
   min-height: 80px;
-}
-
-div.footer, div.footer a {
-  color: #888a85;
 }
 
 div.footer .right {
@@ -450,7 +450,6 @@ div.highlight-txt,
 div.document div.highlight {
   padding: 3px;
   border: 2px solid #ddd;
-  border-width: 2px 0;
   margin: 0.8em 0;
 }
 
