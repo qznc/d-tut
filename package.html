@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Debugging &mdash; Pragmatic D Tutorial</title>
+    <title>Packaging &mdash; Pragmatic D Tutorial</title>
     
     <link rel="stylesheet" href="_static/marcelene.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Pragmatic D Tutorial" href="index.html" />
-    <link rel="next" title="Testing" href="testing.html" />
-    <link rel="prev" title="Basics" href="basics.html" /> 
+    <link rel="next" title="Optimization" href="optimization.html" />
+    <link rel="prev" title="Documentation" href="documentation.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
@@ -35,9 +35,9 @@
         <div class="headertitle"><a
           href="index.html">Pragmatic D Tutorial</a></div>
         <div class="rel">
-          <a href="basics.html" title="Basics"
+          <a href="documentation.html" title="Documentation"
              accesskey="P">previous</a> |
-          <a href="testing.html" title="Testing"
+          <a href="optimization.html" title="Optimization"
              accesskey="N">next</a>
         </div>
        </div>
@@ -51,75 +51,42 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="debugging">
-<h1>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="compile-time-errors">
-<h2>Compile-time Errors<a class="headerlink" href="#compile-time-errors" title="Permalink to this headline">¶</a></h2>
-<p>Since D is comprehensive language,
-you will probably run into error messages from the compiler.
-Here are some explanations about their meaning.</p>
-<div class="section" id="error-t-is-used-as-a-type">
-<h3>Error: T is used as a type<a class="headerlink" href="#error-t-is-used-as-a-type" title="Permalink to this headline">¶</a></h3>
-<p>This T thing is not a type, but is used as such.
-Usually, this happens with templates.
-A template is not a type.
-You probably must instantiate T like <cite>T!int</cite> to fix the error.</p>
-</div>
-</div>
-<div class="section" id="run-time-errors">
-<h2>Run-time Errors<a class="headerlink" href="#run-time-errors" title="Permalink to this headline">¶</a></h2>
-<p>Run-time errors means that the compiled program
-does not behave like intended.</p>
-<div class="section" id="stack-traces">
-<h3>Stack-traces<a class="headerlink" href="#stack-traces" title="Permalink to this headline">¶</a></h3>
-<p>D has exceptions and you get a stack trace,
-if an exception is not caught.
-Of course, being a system language,
-you can break the type system for arbitrary effects,
-but most parts of the language are safe
-and you should get good error message.</p>
-</div>
-<div class="section" id="printf-debugging">
-<h3>Printf Debugging<a class="headerlink" href="#printf-debugging" title="Permalink to this headline">¶</a></h3>
-<p>The easiest way to debug the code
-is insert print commands everywhere.
-From C this is called &#8220;printf debugging&#8221;,
-although it is &#8220;writeln debugging&#8221; in D.</p>
-<p>There is the <tt class="docutils literal"><span class="pre">debug</span></tt> keyword together with the the <tt class="docutils literal"><span class="pre">-debug</span></tt> compiler switch.
-You can disable your print commands with this switch
-without deleting them.
-Consider the following code snippet.</p>
-<div class="highlight-d"><div class="highlight"><pre><span class="n">writeln</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
-<span class="k">debug</span> <span class="n">writeln</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">);</span>
+  <div class="section" id="packaging">
+<h1>Packaging<a class="headerlink" href="#packaging" title="Permalink to this headline">¶</a></h1>
+<p>Dub seems to be the primary candidate for a canonical package manager.
+It requires a simple JSON document <tt class="docutils literal"><span class="pre">package.json</span></tt> describing the project
+and expects a certain structure.</p>
+<ul class="simple">
+<li>source code is in the <tt class="docutils literal"><span class="pre">source</span></tt> or <tt class="docutils literal"><span class="pre">src</span></tt> subdirectory</li>
+<li>main is in <tt class="docutils literal"><span class="pre">app.d</span></tt> or <tt class="docutils literal"><span class="pre">&lt;package</span> <span class="pre">name&gt;.d</span></tt></li>
+<li>string imports are in the <tt class="docutils literal"><span class="pre">views</span></tt> subdirectory</li>
+</ul>
+<p>The main code repository is hosted on
+<a class="reference external" href="http://code.dlang.org/download">code.dlang.org</a>.
+This is D&#8217;s not quite official equivalent to CPAN, PyPI, RubyGems, NPM, etc.
+There you can also find <a class="reference external" href="http://code.dlang.org/download">downloads</a>.</p>
+<div class="section" id="dub-example">
+<h2>Dub Example<a class="headerlink" href="#dub-example" title="Permalink to this headline">¶</a></h2>
+<p>For a usage example, let us look at <a class="reference external" href="https://github.com/rejectedsoftware/ddox">DDox</a>,
+a nice documentation generator,
+which is a little bit more sophisticated than the builtin version.
+Assuming you have dub installed,
+this is how you can get ddox.</p>
+<div class="highlight-sh"><div class="highlight"><pre>git clone https://github.com/rejectedsoftware/ddox.git
+<span class="nb">cd </span>ddox
+dub build
 </pre></div>
 </div>
-<p>If compiled without <tt class="docutils literal"><span class="pre">-debug</span></tt>,
-it will print only &#8220;Hello&#8221;.
-However, compiled with <tt class="docutils literal"><span class="pre">-debug</span></tt>,
-it will also print &#8220;World&#8221;.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Be careful not to put necessary code into debug,
-otherwise your release build might behave differently.</p>
-</div>
-<p>Useful (and probably necessary) is the <tt class="docutils literal"><span class="pre">text</span></tt> function
-from <a class="reference external" href="http://dlang.org/phobos/std_conv.html">std.conv</a>,
-which converts anything to a string.</p>
-</div>
-<div class="section" id="logging">
-<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
-<p>Unfortunately, there is no logging module in the standard library so far.</p>
-</div>
-<div class="section" id="debugger">
-<h3>Debugger<a class="headerlink" href="#debugger" title="Permalink to this headline">¶</a></h3>
-<p>The dmd compiler provides the <tt class="docutils literal"><span class="pre">-g</span></tt> switch,
-which enables you to use gdb or whatever debugger you like.
-The debugger should then know about names,
-variable values, etc.</p>
+<p>After getting the source from Github,
+the <tt class="docutils literal"><span class="pre">dub</span> <span class="pre">build</span></tt> command
+fetches all Dub dependencies (vibe.d, libevent, libev, openssl)
+and builds the application.
+However, on Linux the lib* Dub packages only contain the bindings,
+this means it assumes the libraries are installed on the system,
+otherwise you will get linker errors.</p>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://wiki.dlang.org/Debuggers">Wiki: Debuggers</a></p>
-</div>
+<p class="last"><a class="reference external" href="http://code.dlang.org">Primary D package index</a></p>
 </div>
 </div>
 </div>
@@ -135,14 +102,13 @@ variable values, etc.</p>
 <li class="toctree-l1"><a class="reference internal" href="hello.html">Hello World</a></li>
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Basics</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Debugging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#compile-time-errors">Compile-time Errors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run-time-errors">Run-time Errors</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="package.html">Packaging</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Packaging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dub-example">Dub Example</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idiomatic.html">Idiomatic D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="meta.html">Meta Programming</a></li>
@@ -177,12 +143,12 @@ variable values, etc.</p>
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="basics.html" title="Basics"
+          <a href="documentation.html" title="Documentation"
              >previous</a> |
-          <a href="testing.html" title="Testing"
+          <a href="optimization.html" title="Optimization"
              >next</a>
             <br/>
-            <a href="_sources/debugging.txt"
+            <a href="_sources/package.txt"
                rel="nofollow">Show Source</a>
         </div>
 

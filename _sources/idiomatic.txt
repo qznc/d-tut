@@ -43,7 +43,7 @@ because no guideline is correct in all cases.
 * Data structures should not restrict themselves to be mutable, const, or immutable.
   The user should decide about mutability.
   Test this.
-  Otherwise future changes could break users.
+  Otherwise future changes could break users code.
 
 .. seealso::
 
@@ -70,6 +70,10 @@ For the record,
 everybody mostly agrees that these parameters should be the default
 and some "impure", "throw", and "unsafe" attributes with inverse meaning would be better.
 However, changing it would break too much code at this point.
+
+.. seealso::
+
+   `Purity in D <http://klickverbot.at/blog/2012/05/purity-in-d/#pure_member_functions>`_
 
 Ranges
 ------
@@ -114,3 +118,33 @@ This often means to write code according to the functional programming paradigm.
 
 Scope Guards
 ------------
+
+Scope guards make try-finally (without catch!) constructs obsolete and improve upon them.
+This often comes up with locks.
+
+.. code-block:: d
+
+   try {
+     l.lock();
+     // mutual exclusion stuff
+   } finally {
+     l.unlock();
+   }
+
+Becomes
+
+.. code-block:: d
+
+   {
+     l.lock();
+     scope (exit) l.unlock();
+     // mutual exclusion stuff
+   }
+
+The improvement is two additional variants.
+The `scope(failure)` statement is only executed if an exception is thrown.
+The `scope(success)` statement is only executed if no exception is thrown.
+
+.. seealso::
+   `Language reference on scope guards <http://dlang.org/statement.html#ScopeGuardStatement>`_,
+   `Exception safety <http://dlang.org/exception-safe.html>`_

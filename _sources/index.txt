@@ -60,15 +60,17 @@ Contents
    debugging
    testing
    documentation
+   package
    optimization
    idiomatic
-   slices
    meta
    memory
    c
    multicores
-   stdlib
+   collections
    unicode
+   floating
+   stdlib
    ide
    gui
    next

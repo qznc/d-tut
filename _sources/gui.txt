@@ -8,6 +8,6 @@ a pure D framework,
 which ports the Java SWT API.
 
 Then there are bindings to other frameworks
-like `GTK+ <https://github.com/gtkd-developers/GtkD>`_ or
+like `GTK+ <http://gtkd.org/>`_ or
 `Qt <https://bitbucket.org/qtd/repo>`_.
 

@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.2',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Pragmatic D Tutorial" href="index.html" />
-    <link rel="next" title="IDE" href="ide.html" />
-    <link rel="prev" title="Standard Library: Short Tour" href="stdlib.html" /> 
+    <link rel="next" title="Floating Point" href="floating.html" />
+    <link rel="prev" title="Collections" href="collections.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
@@ -35,12 +35,10 @@
         <div class="headertitle"><a
           href="index.html">Pragmatic D Tutorial</a></div>
         <div class="rel">
-          <a href="stdlib.html" title="Standard Library: Short Tour"
+          <a href="collections.html" title="Collections"
              accesskey="P">previous</a> |
-          <a href="ide.html" title="IDE"
-             accesskey="N">next</a> |
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a>
+          <a href="floating.html" title="Floating Point"
+             accesskey="N">next</a>
         </div>
        </div>
     </div>
@@ -55,8 +53,10 @@
             
   <div class="section" id="unicode">
 <h1>Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h1>
-<p>D is focused on UTF-8.
-Source files are UTF-8.</p>
+<p>Source files are UTF-8,
+which means identifiers can contain special characters.</p>
+<div class="highlight-d"><pre>int föö(int 蝴蝶) { return 蝴蝶 * 2; }</pre>
+</div>
 <div class="section" id="strings">
 <h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
 <p>The builtin D type <tt class="docutils literal"><span class="pre">string</span></tt>
@@ -87,23 +87,40 @@ The Unicode standard defines the meaning of these numbers.</dd>
 <dt>Code Unit</dt>
 <dd>Depending on the encoding a code point might be split into multiple units.
 For example, in UTF-8 one code unit is one byte
-and the code point <tt class="docutils literal"><span class="pre">ä</span></tt> above consists of two units (in hexcode) <tt class="docutils literal"><span class="pre">c3</span></tt> and <tt class="docutils literal"><span class="pre">a4</span></tt>.</dd>
-<dt>Glyph</dt>
+and the code point <tt class="docutils literal"><span class="pre">ä</span></tt> (U+00E4) above consists of two units (in hexcode) <tt class="docutils literal"><span class="pre">c3</span> <span class="pre">a4</span></tt>.</dd>
+<dt>Grapheme</dt>
 <dd>One character as humans perceive it.
 Unicode allows to combine code points.
-For example <tt class="docutils literal"><span class="pre">ä</span></tt> can also be produced with <tt class="docutils literal"><span class="pre">a</span></tt> and the
-<a class="reference external" href="http://www.fileformat.info/info/unicode/char/308/index.htm">combining diaeresis</a> code point.</dd>
+For example <tt class="docutils literal"><span class="pre">ä</span></tt> (U+00E4) can also be produced with <tt class="docutils literal"><span class="pre">a</span></tt> (U+0061) followed by the
+<a class="reference external" href="http://www.fileformat.info/info/unicode/char/308/index.htm">combining diaeresis</a> code point (U+0308).
+These <a class="reference external" href="http://en.wikipedia.org/wiki/Combining_character">combining characters</a>
+can be used for <a class="reference external" href="http://stackoverflow.com/questions/6579844/how-does-zalgo-text-work">crazy</a> things.</dd>
 </dl>
-<p>What people usually want to count are glyphs,
+<p>What people usually want to count are graphemes,
 but this is only possible with all the knowledge of the Unicode tables.
 Counting the code points only requires knowledge of the encoding.
 Counting the bytes is only a lookup in D,
-since array lengths are stored in memory.</p>
+since array lengths are stored in memory.
+To keep <tt class="docutils literal"><span class="pre">string</span></tt> consistent with the <tt class="docutils literal"><span class="pre">char</span></tt>-array semantics,
+the length attribute gives the number of <tt class="docutils literal"><span class="pre">char</span></tt> elements.</p>
+<blockquote>
+<div>The current design has &#8220;won&#8221; not only because it&#8217;s the
+existing one, but also because it has good simplicity and flexibility
+advantages. At this point there is no question about changing the
+semantics of existing constructs.
+~ <a class="reference external" href="http://forum.dlang.org/post/l3h49k$b6$1&#64;digitalmars.com">Andrei Alexandrescu</a></div></blockquote>
+<p>Note that <tt class="docutils literal"><span class="pre">char</span></tt> is <a class="reference external" href="http://dlang.org/type.html">defined</a>
+as &#8220;unsigned 8 bit UTF-8&#8221;
+and this is also <tt class="docutils literal"><span class="pre">ubyte</span></tt> as &#8220;unsigned 8 bits&#8221;.
+The &#8220;UTF-8&#8221; cements the fact that D assumes UTF-8 encoding.</p>
 </div>
 <div class="section" id="transcoding">
 <h2>Transcoding<a class="headerlink" href="#transcoding" title="Permalink to this headline">¶</a></h2>
 <p>Since not everything your program consumes is UTF-8,
-the standard library provides the <tt class="docutils literal"><span class="pre">std.encoding</span></tt> module for conversion.</p>
+D also provides <tt class="docutils literal"><span class="pre">wstring</span></tt> for UTF-16 and <tt class="docutils literal"><span class="pre">dstring</span></tt> for UTF-32.
+In the case of <tt class="docutils literal"><span class="pre">dstring</span></tt> the length attribute also reflects the number of code points.
+The standard library provides the <a class="reference external" href="http://dlang.org/phobos/std_encoding.html">std.encoding</a>
+module for conversion.</p>
 <div class="highlight-d"><div class="highlight"><pre><span class="nb">wstring</span> <span class="n">ws</span><span class="p">;</span>
 <span class="n">transcode</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">,</span><span class="n">ws</span><span class="p">);</span>
   <span class="c1">// transcode from UTF-8 to UTF-16</span>
@@ -138,19 +155,21 @@ and <tt class="docutils literal"><span class="pre">transcode</span></tt> identif
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Packaging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idiomatic.html">Idiomatic D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="slices.html">Slices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="meta.html">Meta Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory.html">Memory Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">C Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multicores.html">Multicores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collections.html">Collections</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Unicode</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#strings">Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#transcoding">Transcoding</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="floating.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ide.html">IDE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="next.html">What Next?</a></li>
@@ -175,12 +194,10 @@ and <tt class="docutils literal"><span class="pre">transcode</span></tt> identif
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="stdlib.html" title="Standard Library: Short Tour"
+          <a href="collections.html" title="Collections"
              >previous</a> |
-          <a href="ide.html" title="IDE"
-             >next</a> |
-          <a href="genindex.html" title="General Index"
-             >index</a>
+          <a href="floating.html" title="Floating Point"
+             >next</a>
             <br/>
             <a href="_sources/unicode.txt"
                rel="nofollow">Show Source</a>
@@ -190,9 +207,14 @@ and <tt class="docutils literal"><span class="pre">transcode</span></tt> identif
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-10-14.
+      Last updated on 2013-11-15.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
+        </div>
+        <div class="clearer"></div>
+        <div id="feedback">
+          For further questions about D, ask on the <a href="http://forum.dlang.org/group/digitalmars.D.learn">D.learn forum</a>.
+          For feedback on this tutorial <a href="mailto:qznc@web.de">write me an email to qznc@web.de</a>.
         </div>
         <div class="clearer"></div>
       </div>

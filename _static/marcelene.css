@@ -58,7 +58,7 @@ a:hover { color: #00f; }
 div.sidebar a,
 div.header a,
 a.headerlink,
-div.footer a {
+div.footer .left a {
   text-decoration: none;
 }
 
@@ -301,8 +301,12 @@ div.footer .right {
   text-align: right;
 }
 
-div.footer .left {
-  text-transform: uppercase;
+div.footer .left  { width: 20%; text-transform: uppercase; }
+div.footer .right { width: 65%; }
+div.footer .right .footer { width: 100%; margin: 0; }
+
+.footer #feedback {
+  margin: 3em 0;
 }
 
 

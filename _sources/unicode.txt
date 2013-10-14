@@ -1,8 +1,12 @@
 Unicode
 =======
 
-D is focused on UTF-8.
-Source files are UTF-8.
+Source files are UTF-8,
+which means identifiers can contain special characters.
+
+.. code-block:: d
+
+   int föö(int 蝴蝶) { return 蝴蝶 * 2; }
 
 Strings
 -------
@@ -41,25 +45,43 @@ Encoding
 Code Unit
   Depending on the encoding a code point might be split into multiple units.
   For example, in UTF-8 one code unit is one byte
-  and the code point ``ä`` above consists of two units (in hexcode) ``c3`` and ``a4``.
+  and the code point ``ä`` (U+00E4) above consists of two units (in hexcode) ``c3 a4``.
 
-Glyph
+Grapheme
   One character as humans perceive it.
   Unicode allows to combine code points.
-  For example ``ä`` can also be produced with ``a`` and the
-  `combining diaeresis <http://www.fileformat.info/info/unicode/char/308/index.htm>`_ code point.
+  For example ``ä`` (U+00E4) can also be produced with ``a`` (U+0061) followed by the
+  `combining diaeresis <http://www.fileformat.info/info/unicode/char/308/index.htm>`_ code point (U+0308).
+  These `combining characters <http://en.wikipedia.org/wiki/Combining_character>`_
+  can be used for `crazy <http://stackoverflow.com/questions/6579844/how-does-zalgo-text-work>`_ things.
 
-What people usually want to count are glyphs,
+What people usually want to count are graphemes,
 but this is only possible with all the knowledge of the Unicode tables.
 Counting the code points only requires knowledge of the encoding.
 Counting the bytes is only a lookup in D,
 since array lengths are stored in memory.
+To keep ``string`` consistent with the ``char``-array semantics,
+the length attribute gives the number of ``char`` elements.
+
+  The current design has "won" not only because it's the
+  existing one, but also because it has good simplicity and flexibility
+  advantages. At this point there is no question about changing the
+  semantics of existing constructs.
+  ~ `Andrei Alexandrescu <http://forum.dlang.org/post/l3h49k$b6$1@digitalmars.com>`_
+
+Note that ``char`` is `defined <http://dlang.org/type.html>`_
+as "unsigned 8 bit UTF-8"
+and this is also ``ubyte`` as "unsigned 8 bits".
+The "UTF-8" cements the fact that D assumes UTF-8 encoding.
 
 Transcoding
 -----------
 
 Since not everything your program consumes is UTF-8,
-the standard library provides the ``std.encoding`` module for conversion.
+D also provides ``wstring`` for UTF-16 and ``dstring`` for UTF-32.
+In the case of ``dstring`` the length attribute also reflects the number of code points.
+The standard library provides the `std.encoding <http://dlang.org/phobos/std_encoding.html>`_
+module for conversion.
 
 .. code-block:: d
 

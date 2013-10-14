@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.2',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -35,9 +35,7 @@
           href="#">Pragmatic D Tutorial</a></div>
         <div class="rel">
           <a href="hello.html" title="Hello World"
-             accesskey="N">next</a> |
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a>
+             accesskey="N">next</a>
         </div>
        </div>
     </div>
@@ -130,6 +128,10 @@ therefore it does not cover these aspects.</p>
 <li class="toctree-l2"><a class="reference internal" href="documentation.html#unittest-as-examples">Unittest as Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Packaging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="package.html#dub-example">Dub Example</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimization</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="optimization.html#profiling">Profiling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimization.html#benchmarking">Benchmarking</a></li>
@@ -143,7 +145,6 @@ therefore it does not cover these aspects.</p>
 <li class="toctree-l2"><a class="reference internal" href="idiomatic.html#scope-guards">Scope Guards</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="slices.html">Slices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="meta.html">Meta Programming</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="meta.html#templates">Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="meta.html#traits">Traits</a></li>
@@ -168,11 +169,10 @@ therefore it does not cover these aspects.</p>
 <li class="toctree-l2"><a class="reference internal" href="multicores.html#memory-model">Memory Model</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stdlib.html#basics">Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stdlib.html#file-formats">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stdlib.html#dates-and-times-and-durations">Dates and Times and Durations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stdlib.html#networking">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collections.html">Collections</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="collections.html#slices">Slices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections.html#std-container">Std.container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections.html#more">More</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a><ul>
@@ -180,11 +180,23 @@ therefore it does not cover these aspects.</p>
 <li class="toctree-l2"><a class="reference internal" href="unicode.html#transcoding">Transcoding</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="floating.html">Floating Point</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="floating.html#differences-to-c">Differences to C</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stdlib.html#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stdlib.html#file-formats">File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stdlib.html#dates-times-and-durations">Dates, Times and Durations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stdlib.html#networking">Networking</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="ide.html">IDE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="next.html">What Next?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="next.html#community">Community</a></li>
 <li class="toctree-l2"><a class="reference internal" href="next.html#contribute">Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next.html#links">Links</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fineprint.html">Fineprint</a><ul>
@@ -219,15 +231,17 @@ therefore it does not cover these aspects.</p>
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Packaging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idiomatic.html">Idiomatic D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="slices.html">Slices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="meta.html">Meta Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory.html">Memory Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">C Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multicores.html">Multicores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collections.html">Collections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floating.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ide.html">IDE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="next.html">What Next?</a></li>
@@ -253,9 +267,7 @@ therefore it does not cover these aspects.</p>
       <div class="footer">
         <div class="left">
           <a href="hello.html" title="Hello World"
-             >next</a> |
-          <a href="genindex.html" title="General Index"
-             >index</a>
+             >next</a>
             <br/>
             <a href="_sources/index.txt"
                rel="nofollow">Show Source</a>
@@ -265,9 +277,14 @@ therefore it does not cover these aspects.</p>
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-10-14.
+      Last updated on 2013-11-17.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
+        </div>
+        <div class="clearer"></div>
+        <div id="feedback">
+          For further questions about D, ask on the <a href="http://forum.dlang.org/group/digitalmars.D.learn">D.learn forum</a>.
+          For feedback on this tutorial <a href="mailto:qznc@web.de">write me an email to qznc@web.de</a>.
         </div>
         <div class="clearer"></div>
       </div>

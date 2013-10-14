@@ -78,3 +78,6 @@ which enables you to use gdb or whatever debugger you like.
 The debugger should then know about names,
 variable values, etc.
 
+.. seealso::
+
+   `Wiki: Debuggers <http://wiki.dlang.org/Debuggers>`_

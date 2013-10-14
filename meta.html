@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.2',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Pragmatic D Tutorial" href="index.html" />
     <link rel="next" title="Memory Management" href="memory.html" />
-    <link rel="prev" title="Slices" href="slices.html" /> 
+    <link rel="prev" title="Idiomatic D" href="idiomatic.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
@@ -35,12 +35,10 @@
         <div class="headertitle"><a
           href="index.html">Pragmatic D Tutorial</a></div>
         <div class="rel">
-          <a href="slices.html" title="Slices"
+          <a href="idiomatic.html" title="Idiomatic D"
              accesskey="P">previous</a> |
           <a href="memory.html" title="Memory Management"
-             accesskey="N">next</a> |
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a>
+             accesskey="N">next</a>
         </div>
        </div>
     </div>
@@ -114,6 +112,15 @@ You can provide a grammar and at compile time an efficient parser is generated.<
 <span class="s">`</span><span class="p">));</span>
 </pre></div>
 </div>
+<p>Another great example of meta programming is <a class="reference external" href="http://jakobovrum.github.io/LuaD/">LuaD</a>.
+It integrates the Lua scripting language into D.
+In contrast to the C interface, the Lua stack operations are hidden with meta programming.
+Effectively, Lua objects can be used like D objects
+instead explicit push/pop calls.</p>
+<div class="highlight-d"><div class="highlight"><pre><span class="k">auto</span> <span class="n">print</span> <span class="p">=</span> <span class="n">lua</span><span class="p">.</span><span class="n">get</span><span class="p">!</span><span class="n">LuaFunction</span><span class="p">(</span><span class="s">&quot;print&quot;</span><span class="p">);</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://nomad.so/2013/07/templates-in-d-explained/">Templates in D explained</a></p>
@@ -135,9 +142,9 @@ You can provide a grammar and at compile time an efficient parser is generated.<
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Packaging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idiomatic.html">Idiomatic D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="slices.html">Slices</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Meta Programming</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#traits">Traits</a></li>
@@ -147,8 +154,10 @@ You can provide a grammar and at compile time an efficient parser is generated.<
 <li class="toctree-l1"><a class="reference internal" href="memory.html">Memory Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">C Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multicores.html">Multicores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collections.html">Collections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floating.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ide.html">IDE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="next.html">What Next?</a></li>
@@ -173,12 +182,10 @@ You can provide a grammar and at compile time an efficient parser is generated.<
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="slices.html" title="Slices"
+          <a href="idiomatic.html" title="Idiomatic D"
              >previous</a> |
           <a href="memory.html" title="Memory Management"
-             >next</a> |
-          <a href="genindex.html" title="General Index"
-             >index</a>
+             >next</a>
             <br/>
             <a href="_sources/meta.txt"
                rel="nofollow">Show Source</a>
@@ -188,9 +195,14 @@ You can provide a grammar and at compile time an efficient parser is generated.<
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-10-13.
+      Last updated on 2013-11-15.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
+        </div>
+        <div class="clearer"></div>
+        <div id="feedback">
+          For further questions about D, ask on the <a href="http://forum.dlang.org/group/digitalmars.D.learn">D.learn forum</a>.
+          For feedback on this tutorial <a href="mailto:qznc@web.de">write me an email to qznc@web.de</a>.
         </div>
         <div class="clearer"></div>
       </div>

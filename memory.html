@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.2',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -38,9 +38,7 @@
           <a href="meta.html" title="Meta Programming"
              accesskey="P">previous</a> |
           <a href="c.html" title="C Interoperability"
-             accesskey="N">next</a> |
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a>
+             accesskey="N">next</a>
         </div>
        </div>
     </div>
@@ -92,12 +90,17 @@ The current garbage collector is not as good as e.g. the Hotspot JVMs.</p>
 <p>If all those approaches do not help,
 you can use still use manual memory management.
 However, most of the standard library requires garbage collection.</p>
-<p>There is <tt class="docutils literal"><span class="pre">delete</span></tt> for manual deallocation.
+<p>There is <tt class="docutils literal"><span class="pre">destroy</span></tt> for manual deallocation.
 You could also access <tt class="docutils literal"><span class="pre">malloc</span></tt> and <tt class="docutils literal"><span class="pre">free</span></tt> from libc directly
 and thus circumvent the garbage collector.
 D provides all mechanisms for RAII like C++.</p>
-<p>There is no compiler/language support for Reference Counting.
-However, you could implement the necessary boilerplate with structs yourself.</p>
+<p>There is no compiler support for reference counting.
+However, you can use
+<a class="reference external" href="http://dlang.org/phobos/std_typecons.html#.RefCounted">RefCounted</a>
+from the standard library.
+It transparently wraps types and counts references.
+By using <tt class="docutils literal"><span class="pre">malloc</span></tt> and <tt class="docutils literal"><span class="pre">free</span></tt> directly,
+the garbage collector is evaded.</p>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://dlang.org/memory.html">Memory Management</a>,
@@ -120,9 +123,9 @@ However, you could implement the necessary boilerplate with structs yourself.</p
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Packaging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idiomatic.html">Idiomatic D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="slices.html">Slices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="meta.html">Meta Programming</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Memory Management</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#garbage-collector-tuning">Garbage Collector Tuning</a></li>
@@ -131,8 +134,10 @@ However, you could implement the necessary boilerplate with structs yourself.</p
 </li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">C Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multicores.html">Multicores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collections.html">Collections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floating.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ide.html">IDE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="next.html">What Next?</a></li>
@@ -160,9 +165,7 @@ However, you could implement the necessary boilerplate with structs yourself.</p
           <a href="meta.html" title="Meta Programming"
              >previous</a> |
           <a href="c.html" title="C Interoperability"
-             >next</a> |
-          <a href="genindex.html" title="General Index"
-             >index</a>
+             >next</a>
             <br/>
             <a href="_sources/memory.txt"
                rel="nofollow">Show Source</a>
@@ -172,9 +175,14 @@ However, you could implement the necessary boilerplate with structs yourself.</p
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-10-10.
+      Last updated on 2013-11-16.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
+        </div>
+        <div class="clearer"></div>
+        <div id="feedback">
+          For further questions about D, ask on the <a href="http://forum.dlang.org/group/digitalmars.D.learn">D.learn forum</a>.
+          For feedback on this tutorial <a href="mailto:qznc@web.de">write me an email to qznc@web.de</a>.
         </div>
         <div class="clearer"></div>
       </div>

@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.2',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Pragmatic D Tutorial" href="index.html" />
-    <link rel="next" title="Unicode" href="unicode.html" />
-    <link rel="prev" title="Multicores" href="multicores.html" /> 
+    <link rel="next" title="IDE" href="ide.html" />
+    <link rel="prev" title="Floating Point" href="floating.html" /> 
   </head>
   <body>
     <div class="header-wrapper">
@@ -35,12 +35,10 @@
         <div class="headertitle"><a
           href="index.html">Pragmatic D Tutorial</a></div>
         <div class="rel">
-          <a href="multicores.html" title="Multicores"
+          <a href="floating.html" title="Floating Point"
              accesskey="P">previous</a> |
-          <a href="unicode.html" title="Unicode"
-             accesskey="N">next</a> |
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a>
+          <a href="ide.html" title="IDE"
+             accesskey="N">next</a>
         </div>
        </div>
     </div>
@@ -59,12 +57,12 @@
 so you have an idea what is available.</p>
 <div class="section" id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
-<p>Basic algorithms like those in the standart template library of C++
+<p>Basic algorithms like those in the standard template library of C++
 are found in <a class="reference external" href="http://dlang.org/phobos/std_algorithm.html">std.algorithm</a>.
 For example, <tt class="docutils literal"><span class="pre">sort</span></tt>, <tt class="docutils literal"><span class="pre">find</span></tt>, and <tt class="docutils literal"><span class="pre">map</span></tt>.
 Then there is <a class="reference external" href="http://dlang.org/phobos/std_functional.html">std.functional</a>
 with <tt class="docutils literal"><span class="pre">curry</span></tt>, <tt class="docutils literal"><span class="pre">memoize</span></tt> and other helpers for functional programming.
-Useful helper functions ilike <tt class="docutils literal"><span class="pre">split</span></tt> for the builtin arrays can be found in
+Useful helper functions like <tt class="docutils literal"><span class="pre">split</span></tt> for the builtin arrays can be found in
 <a class="reference external" href="http://dlang.org/phobos/std_array.html">std.array</a>.</p>
 </div>
 <div class="section" id="file-formats">
@@ -80,8 +78,8 @@ Especially, for XML you might want to check out
 <a class="reference external" href="http://forum.dlang.org/post/lzeqryvbhwescvxqdwbq&#64;forum.dlang.org">look for bindings</a>
 to your favorite C XML library.</p>
 </div>
-<div class="section" id="dates-and-times-and-durations">
-<h2>Dates and Times and Durations<a class="headerlink" href="#dates-and-times-and-durations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dates-times-and-durations">
+<h2>Dates, Times and Durations<a class="headerlink" href="#dates-times-and-durations" title="Permalink to this headline">¶</a></h2>
 <p>Basically, everything related to time is in
 <a class="reference external" href="http://dlang.org/phobos/std_datetime.html">std.datetime</a>:
 Dates, times, intervals, differences,
@@ -111,21 +109,23 @@ with bindings to the venerable
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Packaging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idiomatic.html">Idiomatic D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="slices.html">Slices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="meta.html">Meta Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory.html">Memory Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">C Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multicores.html">Multicores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collections.html">Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floating.html">Floating Point</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Standard Library: Short Tour</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#file-formats">File Formats</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dates-and-times-and-durations">Dates and Times and Durations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dates-times-and-durations">Dates, Times and Durations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#networking">Networking</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ide.html">IDE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="next.html">What Next?</a></li>
@@ -150,12 +150,10 @@ with bindings to the venerable
     <div class="footer-wrapper">
       <div class="footer">
         <div class="left">
-          <a href="multicores.html" title="Multicores"
+          <a href="floating.html" title="Floating Point"
              >previous</a> |
-          <a href="unicode.html" title="Unicode"
-             >next</a> |
-          <a href="genindex.html" title="General Index"
-             >index</a>
+          <a href="ide.html" title="IDE"
+             >next</a>
             <br/>
             <a href="_sources/stdlib.txt"
                rel="nofollow">Show Source</a>
@@ -165,9 +163,14 @@ with bindings to the venerable
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-10-13.
+      Last updated on 2013-11-15.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
+        </div>
+        <div class="clearer"></div>
+        <div id="feedback">
+          For further questions about D, ask on the <a href="http://forum.dlang.org/group/digitalmars.D.learn">D.learn forum</a>.
+          For feedback on this tutorial <a href="mailto:qznc@web.de">write me an email to qznc@web.de</a>.
         </div>
         <div class="clearer"></div>
       </div>

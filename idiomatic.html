@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.2',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="Pragmatic D Tutorial" href="index.html" />
-    <link rel="next" title="Slices" href="slices.html" />
+    <link rel="next" title="Meta Programming" href="meta.html" />
     <link rel="prev" title="Optimization" href="optimization.html" /> 
   </head>
   <body>
@@ -37,10 +37,8 @@
         <div class="rel">
           <a href="optimization.html" title="Optimization"
              accesskey="P">previous</a> |
-          <a href="slices.html" title="Slices"
-             accesskey="N">next</a> |
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a>
+          <a href="meta.html" title="Meta Programming"
+             accesskey="N">next</a>
         </div>
        </div>
     </div>
@@ -91,7 +89,7 @@ either explicitly document this or make the arguments immutable.</li>
 <li>Data structures should not restrict themselves to be mutable, const, or immutable.
 The user should decide about mutability.
 Test this.
-Otherwise future changes could break users.</li>
+Otherwise future changes could break users code.</li>
 </ul>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
@@ -118,6 +116,10 @@ For example, a pure function can only call pure functions.</p>
 everybody mostly agrees that these parameters should be the default
 and some &#8220;impure&#8221;, &#8220;throw&#8221;, and &#8220;unsafe&#8221; attributes with inverse meaning would be better.
 However, changing it would break too much code at this point.</p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://klickverbot.at/blog/2012/05/purity-in-d/#pure_member_functions">Purity in D</a></p>
+</div>
 </div>
 <div class="section" id="ranges">
 <h2>Ranges<a class="headerlink" href="#ranges" title="Permalink to this headline">¶</a></h2>
@@ -158,6 +160,32 @@ This often means to write code according to the functional programming paradigm.
 </div>
 <div class="section" id="scope-guards">
 <h2>Scope Guards<a class="headerlink" href="#scope-guards" title="Permalink to this headline">¶</a></h2>
+<p>Scope guards make try-finally (without catch!) constructs obsolete and improve upon them.
+This often comes up with locks.</p>
+<div class="highlight-d"><div class="highlight"><pre><span class="k">try</span> <span class="p">{</span>
+  <span class="n">l</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+  <span class="c1">// mutual exclusion stuff</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+  <span class="n">l</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Becomes</p>
+<div class="highlight-d"><div class="highlight"><pre><span class="p">{</span>
+  <span class="n">l</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+  <span class="k">scope</span> <span class="p">(</span><span class="n">exit</span><span class="p">)</span> <span class="n">l</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
+  <span class="c1">// mutual exclusion stuff</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The improvement is two additional variants.
+The <cite>scope(failure)</cite> statement is only executed if an exception is thrown.
+The <cite>scope(success)</cite> statement is only executed if no exception is thrown.</p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://dlang.org/statement.html#ScopeGuardStatement">Language reference on scope guards</a>,
+<a class="reference external" href="http://dlang.org/exception-safe.html">Exception safety</a></p>
+</div>
 </div>
 </div>
 
@@ -175,6 +203,7 @@ This often means to write code according to the functional programming paradigm.
 <li class="toctree-l1"><a class="reference internal" href="debugging.html">Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="package.html">Packaging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimization</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Idiomatic D</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#constness">Constness</a></li>
@@ -184,13 +213,14 @@ This often means to write code according to the functional programming paradigm.
 <li class="toctree-l2"><a class="reference internal" href="#scope-guards">Scope Guards</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="slices.html">Slices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="meta.html">Meta Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory.html">Memory Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c.html">C Interoperability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multicores.html">Multicores</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collections.html">Collections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unicode.html">Unicode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floating.html">Floating Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Standard Library: Short Tour</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ide.html">IDE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gui.html">GUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="next.html">What Next?</a></li>
@@ -217,10 +247,8 @@ This often means to write code according to the functional programming paradigm.
         <div class="left">
           <a href="optimization.html" title="Optimization"
              >previous</a> |
-          <a href="slices.html" title="Slices"
-             >next</a> |
-          <a href="genindex.html" title="General Index"
-             >index</a>
+          <a href="meta.html" title="Meta Programming"
+             >next</a>
             <br/>
             <a href="_sources/idiomatic.txt"
                rel="nofollow">Show Source</a>
@@ -230,9 +258,14 @@ This often means to write code according to the functional programming paradigm.
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-10-10.
+      Last updated on 2013-11-17.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
+        </div>
+        <div class="clearer"></div>
+        <div id="feedback">
+          For further questions about D, ask on the <a href="http://forum.dlang.org/group/digitalmars.D.learn">D.learn forum</a>.
+          For feedback on this tutorial <a href="mailto:qznc@web.de">write me an email to qznc@web.de</a>.
         </div>
         <div class="clearer"></div>
       </div>
