@@ -46,7 +46,7 @@ If all those approaches do not help,
 you can use still use manual memory management.
 However, most of the standard library requires garbage collection.
 
-There is ``delete`` for manual deallocation.
+There is ``destroy`` for manual deallocation.
 You could also access ``malloc`` and ``free`` from libc directly
 and thus circumvent the garbage collector.
 D provides all mechanisms for RAII like C++.
