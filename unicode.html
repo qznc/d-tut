@@ -55,8 +55,8 @@
             
   <div class="section" id="unicode">
 <h1>Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h1>
-<p>D is focused on utf8.
-Source files are utf8.</p>
+<p>D is focused on UTF-8.
+Source files are UTF-8.</p>
 <div class="section" id="strings">
 <h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
 <p>The builtin D type <tt class="docutils literal"><span class="pre">string</span></tt>
@@ -69,10 +69,40 @@ Thus the following different lengths.</p>
 <span class="k">assert</span><span class="p">(</span><span class="n">walkLength</span><span class="p">(</span><span class="n">foo</span><span class="p">)</span> <span class="p">==</span> <span class="mi">3</span><span class="p">);</span>
 </pre></div>
 </div>
+<blockquote>
+<div>Wouldn&#8217;t it be more consistent to have &lt;string&gt;.length return the
+number of UTF-8 characters as well?
+– <a class="reference external" href="http://forum.dlang.org/post/phybgondilwmlwrflawx&#64;forum.dlang.org">nickles</a></div></blockquote>
+<p>This seems to be a weird design choice at first,
+but once you learn more about Unicode
+it is the only sane choice
+if you also care about performance.
+To understand this some background of Unicode is necessary.</p>
+<dl class="docutils">
+<dt>Code Point</dt>
+<dd>One Unicode character, a number between 0 and 1,114,112.
+The Unicode standard defines the meaning of these numbers.</dd>
+<dt>Encoding</dt>
+<dd>An encoding specifies how to represent code points in bytes.</dd>
+<dt>Code Unit</dt>
+<dd>Depending on the encoding a code point might be split into multiple units.
+For example, in UTF-8 one code unit is one byte
+and the code point <tt class="docutils literal"><span class="pre">ä</span></tt> above consists of two units (in hexcode) <tt class="docutils literal"><span class="pre">c3</span></tt> and <tt class="docutils literal"><span class="pre">a4</span></tt>.</dd>
+<dt>Glyph</dt>
+<dd>One character as humans perceive it.
+Unicode allows to combine code points.
+For example <tt class="docutils literal"><span class="pre">ä</span></tt> can also be produced with <tt class="docutils literal"><span class="pre">a</span></tt> and the
+<a class="reference external" href="http://www.fileformat.info/info/unicode/char/308/index.htm">combining diaeresis</a> code point.</dd>
+</dl>
+<p>What people usually want to count are glyphs,
+but this is only possible with all the knowledge of the Unicode tables.
+Counting the code points only requires knowledge of the encoding.
+Counting the bytes is only a lookup in D,
+since array lengths are stored in memory.</p>
 </div>
 <div class="section" id="transcoding">
 <h2>Transcoding<a class="headerlink" href="#transcoding" title="Permalink to this headline">¶</a></h2>
-<p>Since not everything your program consumes is utf8,
+<p>Since not everything your program consumes is UTF-8,
 the standard library provides the <tt class="docutils literal"><span class="pre">std.encoding</span></tt> module for conversion.</p>
 <div class="highlight-d"><div class="highlight"><pre><span class="nb">wstring</span> <span class="n">ws</span><span class="p">;</span>
 <span class="n">transcode</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">,</span><span class="n">ws</span><span class="p">);</span>
@@ -83,10 +113,14 @@ the standard library provides the <tt class="docutils literal"><span class="pre"
   <span class="c1">// transcode from UTF-16 to ISO-8859-1</span>
 </pre></div>
 </div>
-<p>As source files are utf8,
-string literals are utf8 as well.
-The <tt class="docutils literal"><span class="pre">wstring</span></tt> type is utf16,
+<p>As source files are UTF-8,
+string literals are UTF-8 as well.
+The <tt class="docutils literal"><span class="pre">wstring</span></tt> type is UTF-16,
 and <tt class="docutils literal"><span class="pre">transcode</span></tt> identifies source and target encoding from the types of its arguments.</p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://www.joelonsoftware.com/articles/Unicode.html">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets</a></p>
+</div>
 </div>
 </div>
 
@@ -156,7 +190,7 @@ and <tt class="docutils literal"><span class="pre">transcode</span></tt> identif
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-10-10.
+      Last updated on 2013-10-14.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
         </div>
