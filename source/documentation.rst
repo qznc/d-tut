@@ -33,7 +33,7 @@ or any other format.
 Beautiful API Documentation
 ---------------------------
 
-If you a more refined tool to produce API documenation for your project,
+If you need a more refined tool to produce API documenation for your project,
 then check out `ddox <https://github.com/rejectedsoftware/ddox>`_.
 
 Unittest as Examples

@@ -43,7 +43,7 @@ because no guideline is correct in all cases.
 * Data structures should not restrict themselves to be mutable, const, or immutable.
   The user should decide about mutability.
   Test this.
-  Otherwise future changes could break users.
+  Otherwise future changes could break users code.
 
 .. seealso::
 
