@@ -57,11 +57,16 @@ since array lengths are stored in memory.
 To keep ``string`` consistent with the ``char``-array semantics,
 the length attribute gives the number of ``char`` elements.
 
+  The current design has "won" not only because it's the
+  existing one, but also because it has good simplicity and flexibility
+  advantages. At this point there is no question about changing the
+  semantics of existing constructs.
+  ~ `Andrei Alexandrescu <http://forum.dlang.org/post/l3h49k$b6$1@digitalmars.com>`_
+
 Note that ``char`` is `defined <http://dlang.org/type.html>`_
 as "unsigned 8 bit UTF-8"
 and this is also ``ubyte`` as "unsigned 8 bits".
-The "UTF-8" cements the fact that D assumes UTF-8 encoding
-and not UTF-16 or UCS-2.
+The "UTF-8" cements the fact that D assumes UTF-8 encoding.
 
 Transcoding
 -----------
