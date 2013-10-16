@@ -41,13 +41,15 @@ Encoding
 Code Unit
   Depending on the encoding a code point might be split into multiple units.
   For example, in UTF-8 one code unit is one byte
-  and the code point ``ä`` above consists of two units (in hexcode) ``c3`` and ``a4``.
+  and the code point ``ä`` (U+00E4) above consists of two units (in hexcode) ``c3 a4``.
 
 Grapheme
   One character as humans perceive it.
   Unicode allows to combine code points.
-  For example ``ä`` can also be produced with ``a`` and the
-  `combining diaeresis <http://www.fileformat.info/info/unicode/char/308/index.htm>`_ code point.
+  For example ``ä`` (U+00E4) can also be produced with ``a`` (U+0061) followed by the
+  `combining diaeresis <http://www.fileformat.info/info/unicode/char/308/index.htm>`_ code point (U+0308).
+  These `combining characters <http://en.wikipedia.org/wiki/Combining_character>`_
+  can be used for `crazy <http://stackoverflow.com/questions/6579844/how-does-zalgo-text-work>`_ things.
 
 What people usually want to count are graphemes,
 but this is only possible with all the knowledge of the Unicode tables.
