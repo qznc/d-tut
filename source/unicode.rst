@@ -43,23 +43,34 @@ Code Unit
   For example, in UTF-8 one code unit is one byte
   and the code point ``ä`` above consists of two units (in hexcode) ``c3`` and ``a4``.
 
-Glyph
+Grapheme
   One character as humans perceive it.
   Unicode allows to combine code points.
   For example ``ä`` can also be produced with ``a`` and the
   `combining diaeresis <http://www.fileformat.info/info/unicode/char/308/index.htm>`_ code point.
 
-What people usually want to count are glyphs,
+What people usually want to count are graphemes,
 but this is only possible with all the knowledge of the Unicode tables.
 Counting the code points only requires knowledge of the encoding.
 Counting the bytes is only a lookup in D,
 since array lengths are stored in memory.
+To keep ``string`` consistent with the ``char``-array semantics,
+the length attribute gives the number of ``char`` elements.
+
+Note that ``char`` is `defined <http://dlang.org/type.html>`_
+as "unsigned 8 bit UTF-8"
+and this is also ``ubyte`` as "unsigned 8 bits".
+The "UTF-8" cements the fact that D assumes UTF-8 encoding
+and not UTF-16 or UCS-2.
 
 Transcoding
 -----------
 
 Since not everything your program consumes is UTF-8,
-the standard library provides the ``std.encoding`` module for conversion.
+D also provides ``wstring`` for UTF-16 and ``dstring`` for UTF-32.
+In the case of ``dstring`` the length attribute also reflects the number of code points.
+The standard library provides the `std.encoding <http://dlang.org/phobos/std_encoding.html>`_
+module for conversion.
 
 .. code-block:: d
 
