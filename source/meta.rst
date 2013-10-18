@@ -71,6 +71,17 @@ You can provide a grammar and at compile time an efficient parser is generated.
       Variable <- identifier
     `));
 
+Another great example of meta programming is `LuaD <http://jakobovrum.github.io/LuaD/>`_.
+It integrates the Lua scripting language into D.
+In contrast to the C interface, the Lua stack operations are hidden with meta programming.
+Effectively, Lua objects can be used like D objects
+instead explicit push/pop calls.
+
+.. code-block:: d
+
+   auto print = lua.get!LuaFunction("print");
+   print("Hello, world!");
+
 .. seealso::
 
    `Templates in D explained <http://nomad.so/2013/07/templates-in-d-explained/>`_
