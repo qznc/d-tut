@@ -1,8 +1,12 @@
 Unicode
 =======
 
-D is focused on UTF-8.
-Source files are UTF-8.
+Source files are UTF-8,
+which means identifiers can contain special characters.
+
+.. code-block:: d
+
+   int föö(int 蝴蝶) { return 蝴蝶 * 2; }
 
 Strings
 -------
