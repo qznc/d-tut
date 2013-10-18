@@ -114,3 +114,33 @@ This often means to write code according to the functional programming paradigm.
 
 Scope Guards
 ------------
+
+Scope guards make try-finally (without catch!) constructs obsolete and improve upon them.
+This often comes up with locks.
+
+.. code-block:: d
+
+   try {
+     l.lock();
+     // mutual exclusion stuff
+   } finally {
+     l.unlock();
+   }
+
+Becomes
+
+.. code-block:: d
+
+   {
+     l.lock();
+     scope (exit) l.unlock();
+     // mutual exclusion stuff
+   }
+
+The improvement is two additional variants.
+The `scope(failure)` statement is only executed if an exception is thrown.
+The `scope(success)` statement is only executed if no exception is thrown.
+
+.. seealso::
+   `Language reference on scope guards <http://dlang.org/statement.html#ScopeGuardStatement>`_,
+   `Exception safety <http://dlang.org/exception-safe.html>`_
