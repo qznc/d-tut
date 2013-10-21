@@ -70,3 +70,14 @@ atomic variables.
 
 Memory Model
 ------------
+
+Currently, D has no specified memory model.
+However, you can assume that it will follow the intentions of C++ memory model.
+This means:
+Sequential consistency for data-race-free prpgrams.
+In other words:
+Properly synchronize your stuff with locks and stuff from the standard library
+and everything will behave to your intuition.
+It only becomes difficult,
+if your requirements are tighter
+such that lower-level mechanisms must be used.
