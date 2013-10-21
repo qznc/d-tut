@@ -62,13 +62,13 @@ Contents
    documentation
    optimization
    idiomatic
-   slices
    meta
    memory
    c
    multicores
-   stdlib
+   collections
    unicode
+   stdlib
    ide
    gui
    next
