@@ -68,6 +68,7 @@ Contents
    multicores
    collections
    unicode
+   floating
    stdlib
    ide
    gui
