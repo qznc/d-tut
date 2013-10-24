@@ -28,6 +28,10 @@ It inserts an empty main function into the program,
 which is necessary for execution
 and runs the unittests before.
 
+You should probably keep unittests out of templates,
+otherwise they get instantiated multiple times,
+which is probably not the intended behavior.
+
 Coverage
 --------
 
