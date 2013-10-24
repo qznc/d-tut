@@ -6,7 +6,7 @@ but many programmers want solid IDE support.
 
 For MS Visual Studio,
 there is `VisualD <http://www.dsource.org/projects/visuald>`_.
-This is officially endorse,
+This project is officially endorsed,
 as `its code <https://github.com/D-Programming-Language/visuald>`_
 is hosted within the `D Github group <https://github.com/D-Programming-Language>`_.
 
