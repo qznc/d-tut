@@ -63,5 +63,6 @@ with yet another precision than the hardware.
 .. seealso::
 
   `D Basic Data Types <http://dlang.org/type.html>`_,
+  `D Floating Point Semantics <http://dlang.org/float.html>`_,
   `Real Close to the Machine: Floating Point in D <http://dlang.org/d-floating-point.html>`_,
   `What Every Computer Scientist Should Know About Floating-Point Arithmetic <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_
