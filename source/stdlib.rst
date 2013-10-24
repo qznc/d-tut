@@ -7,12 +7,12 @@ so you have an idea what is available.
 Basics
 ------
 
-Basic algorithms like those in the standart template library of C++
+Basic algorithms like those in the standard template library of C++
 are found in `std.algorithm <http://dlang.org/phobos/std_algorithm.html>`_.
 For example, ``sort``, ``find``, and ``map``.
 Then there is `std.functional <http://dlang.org/phobos/std_functional.html>`_
 with ``curry``, ``memoize`` and other helpers for functional programming.
-Useful helper functions ilike ``split`` for the builtin arrays can be found in
+Useful helper functions like ``split`` for the builtin arrays can be found in
 `std.array <http://dlang.org/phobos/std_array.html>`_.
 
 File Formats
@@ -29,7 +29,7 @@ Especially, for XML you might want to check out
 `look for bindings <http://forum.dlang.org/post/lzeqryvbhwescvxqdwbq@forum.dlang.org>`_
 to your favorite C XML library.
 
-Dates and Times and Durations
+Dates, Times and Durations
 -----------------------------
 
 Basically, everything related to time is in
