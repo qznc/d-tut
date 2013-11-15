@@ -60,6 +60,7 @@ Contents
    debugging
    testing
    documentation
+   package
    optimization
    idiomatic
    meta
