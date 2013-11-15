@@ -28,6 +28,7 @@ which has not found an appropriate place in the tutorial.
 * `SciD <https://github.com/kyllingstad/scid>`_: A scientific library for D, which includes bindings to BLAS and Lapack.
 * `Vibe.d <http://vibed.org/>`_: Async IO with an integrated full-stack web framework.
 * `Dscanner <https://github.com/Hackerpilot/Dscanner>`_: Swiss-army knife for D source code.
+* `XOmB <https://github.com/xomboverlord/xomb>`_  an exokernel operating system written in D
 * `The D Programming Language <http://www.amazon.com/exec/obidos/ASIN/0321635361/classicempire>`_:
   book by Andrei Alexandrescu about details and design rationale of D.
 * `D Programming Language Tutorial <http://ddili.org/ders/d.en/index.html>`_:
