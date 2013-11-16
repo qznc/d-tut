@@ -51,8 +51,13 @@ You could also access ``malloc`` and ``free`` from libc directly
 and thus circumvent the garbage collector.
 D provides all mechanisms for RAII like C++.
 
-There is no compiler/language support for Reference Counting.
-However, you could implement the necessary boilerplate with structs yourself.
+There is no compiler support for reference counting.
+However, you can use
+`RefCounted <http://dlang.org/phobos/std_typecons.html#.RefCounted>`_
+from the standard library.
+It transparently wraps types and counts references.
+By using ``malloc`` and ``free`` directly,
+the garbage collector is evaded.
 
 .. seealso::
    `Memory Management <http://dlang.org/memory.html>`_,
