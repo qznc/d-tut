@@ -14,7 +14,8 @@ Community
 Contribute
 ----------
 
-* Send pull requests `on Github <https://github.com/D-Programming-Language/>`_
+* Send a pull request `on Github <https://github.com/D-Programming-Language/>`_
+* Post a `bounty <https://www.bountysource.com/trackers/383571-d-programming-language>`_ on a bug
 * Write a blog post about D
 
 Links
