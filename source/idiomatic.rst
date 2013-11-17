@@ -71,6 +71,10 @@ everybody mostly agrees that these parameters should be the default
 and some "impure", "throw", and "unsafe" attributes with inverse meaning would be better.
 However, changing it would break too much code at this point.
 
+.. seealso::
+
+   `Purity in D <http://klickverbot.at/blog/2012/05/purity-in-d/#pure_member_functions>`_
+
 Ranges
 ------
 
