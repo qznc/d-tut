@@ -20,7 +20,7 @@ Why would you prefer D?
 The meta programming of D allows higher-level abstractions
 and thus smaller programs.
 D has less pitfalls and is safer,
-thanks to better type safety, less undefined behavior,
+thanks to more type safety, less undefined behavior,
 and automatic memory management.
 
 For Java Programmers
@@ -137,7 +137,7 @@ from Ds standard library.
 
 Why would you prefer D?
 D supports generic programming,
-which means less code and type safety.
+which means less code and more type safety.
 D provides a bigger toolbox to choose the right tool for the job.
 Compiling D is as fast as compiling Go.
 
