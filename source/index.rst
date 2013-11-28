@@ -56,7 +56,7 @@ Contents
 
    hello
    philosophy
-   basics
+   others
    debugging
    testing
    documentation
