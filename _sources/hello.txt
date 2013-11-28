@@ -2,6 +2,10 @@
 Hello World
 ===========
 
+Syntactically, D looks very much like C/C++/C#/Java.
+There are the keywords like
+``if``, ``while``, ``class``, ``struct``, ``int``, ``double``, ``private``
+with unsurprising semantics.
 Here is the canonical Hello World application.
 
 .. literalinclude:: ../examplecode/helloworld.d

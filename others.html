@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Basics &mdash; Pragmatic D Tutorial</title>
+    <title>Other Languages &mdash; Pragmatic D Tutorial</title>
     
     <link rel="stylesheet" href="_static/marcelene.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -51,55 +51,130 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="basics">
-<h1>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="other-languages">
+<h1>Other Languages<a class="headerlink" href="#other-languages" title="Permalink to this headline">¶</a></h1>
 <p>You already know how to program,
-but lets cover the basics quickly.
-In addition comes some specific comparisons to other programming languages.</p>
-<p>Syntactically, D looks very much like C/C++/C#/Java.
-There are the keywords like
-<tt class="docutils literal"><span class="pre">if</span></tt>, <tt class="docutils literal"><span class="pre">while</span></tt>, <tt class="docutils literal"><span class="pre">class</span></tt>, <tt class="docutils literal"><span class="pre">struct</span></tt>, <tt class="docutils literal"><span class="pre">int</span></tt>, <tt class="docutils literal"><span class="pre">double</span></tt>, <tt class="docutils literal"><span class="pre">private</span></tt>
-with unsurprising semantics.</p>
-<div class="section" id="for-c-and-c-programmers">
-<h2>For C (and C++) Programmers<a class="headerlink" href="#for-c-and-c-programmers" title="Permalink to this headline">¶</a></h2>
+which means you are coming from some other language to D.
+Here is why you might prefer D.</p>
+<div class="section" id="for-c-programmers">
+<h2>For C Programmers<a class="headerlink" href="#for-c-programmers" title="Permalink to this headline">¶</a></h2>
 <p>D has no preprocessor,
-but equivalent meta programming mechanisms.</p>
-<p>Syntactically, most C code is actually valid D.
+but equivalent meta programming mechanisms.
+Syntactically, lots of C code is actually valid D.
 It should be noted that D defines a lot of things,
 which are undefined (or architecture-, implementation-defined) in C.
 For example, integer overflows wrap around in D,
 because that is what practically every architecture today does.</p>
+<p>Why would you prefer D?
+The meta programming of D allows higher-level abstractions
+and thus smaller programs.
+D has less pitfalls and is safer,
+thanks to more type safety, less undefined behavior,
+and automatic memory management.</p>
 </div>
 <div class="section" id="for-java-programmers">
 <h2>For Java Programmers<a class="headerlink" href="#for-java-programmers" title="Permalink to this headline">¶</a></h2>
 <p>D provides classes, interfaces, modules, packages, and a garbage collector.
-This should make you feel at home quickly.</p>
-<p>D programmers care a lot more about efficiency,
-which means there is a lot of machinery to improve performance.</p>
-<p>Instead of Java Generics, you have D Templates,
-which cover similar problems,
-but have different syntax and semantics.
-Read about that carefully.</p>
+This should make you feel at home quickly.
+Instead of Java Generics, you have D Templates.</p>
+<p>Why would you prefer D?
+The meta programming of D allows higher-level abstractions
+and thus smaller programs.
+If CPU or memory is a bottleneck,
+D gives you much more control and room for optimization.</p>
 </div>
-<div class="section" id="for-c-programmers">
-<h2>For C++ Programmers<a class="headerlink" href="#for-c-programmers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>For C++ Programmers<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>You should generally feel at home.
 If you enjoyed the C++11 innovations,
 you will find similar stuff in D.
-D even has things which were dropped from C++11.</p>
-<p>Prepare for some syntax changes, though.
+D even has things which were dropped from C++11.
+Prepare for some syntax changes, though.
 D is not burdened by C-Syntax-Compatibility.
 However, you can link C and C++ libraries,
-if the header files are ported.</p>
+when the header files are ported.</p>
+<p>Why would you prefer D?
+D has much less historical baggage.
+D has less pitfalls and is safer,
+thanks to less undefined behavior,
+and automatic memory management.</p>
 </div>
-<div class="section" id="id1">
-<h2>For C# Programmers<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>For C# Programmers<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Lots of similarities and various differences.
 While you should feel at home,
-D does various things different and that will take some time to adopt.</p>
-<p>Instead of a syntax extension like LINQ,
+D does various things different and that will take some time to adopt.
+Instead of a syntax extension like LINQ,
 D provides a lots of similar mechanisms in the standard library.
 Instead of <tt class="docutils literal"><span class="pre">using</span></tt>, D provides scope guards.</p>
+<p>Why would you prefer D?
+D does not require a virtual machine,
+which makes it also suited for embedded jobs.</p>
+</div>
+<div class="section" id="for-node-js-programmers">
+<h2>For Node.js Programmers<a class="headerlink" href="#for-node-js-programmers" title="Permalink to this headline">¶</a></h2>
+<p>Syntactically, D looks familiar.
+Note though, Javascripts <tt class="docutils literal"><span class="pre">function</span></tt> is <tt class="docutils literal"><span class="pre">delegate</span></tt> in D,
+and Ds <tt class="docutils literal"><span class="pre">function</span></tt> is a lightweight variant without state.
+D is statically typed,
+but keeps the boilerplate low.
+Here is <a class="reference external" href="http://rosettacode.org/wiki/Look-and-say_sequence#D">a Rosettacode example</a>,
+which shows a D can be short and concise
+or highly optimized.</p>
+<p>Why would you prefer D?
+If CPU or memory is a bottleneck,
+D gives you much more control and room for optimization.
+Look at <a class="reference external" href="http://vibed.org/">Vibe.d</a>
+&#8220;for easily building fast, scalable network applications&#8221;.
+This D framework is
+&#8220;lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.&#8221;</p>
+</div>
+<div class="section" id="for-clojure-programmers">
+<h2>For Clojure Programmers<a class="headerlink" href="#for-clojure-programmers" title="Permalink to this headline">¶</a></h2>
+<p>D is no Lisp.
+However, its meta programming equally powerful and nearly as easy as Lisp macros.
+D supports immutable data structures,
+although the standard library is not that rich yet.
+D is natively compiled and does not run on the JVM.</p>
+<p>Why would you prefer D?
+If CPU or memory is a bottleneck,
+D gives you much more control and room for optimization.
+The richer syntax of D might be more intuitive than Lisp expressions.</p>
+</div>
+<div class="section" id="for-scala-programmers">
+<h2>For Scala Programmers<a class="headerlink" href="#for-scala-programmers" title="Permalink to this headline">¶</a></h2>
+<p>Like Scala,
+D is multi-paradigm and combines object-oriented with functional concepts.
+You can &#8220;construct elegant class hierarchies for maximum code reuse and extensibility, implement their behavior using higher-order functions&#8221; in D as well.</p>
+<p>Why would you prefer D?
+If CPU or memory is a bottleneck,
+D gives you much more control and room for optimization.
+Compiling D is much faster
+and the speed of code-compile-test iterations is important for productivity.</p>
+</div>
+<div class="section" id="for-go-programmers">
+<h2>For Go Programmers<a class="headerlink" href="#for-go-programmers" title="Permalink to this headline">¶</a></h2>
+<p>Like Go,
+D is natively compiled.
+However, D has a much richer <a class="reference external" href="http://dlang.org/comparison.html">feature set</a>.
+This means,
+where Go restricts you to carefully choosen selection of features,
+D provides you the lower level building blocks.
+The goroutine is called a
+<a class="reference external" href="http://dlang.org/phobos/core_thread.html#.Fiber">fiber</a> in D
+and <a class="reference external" href="http://vibed.org/">Vibe.d</a> is a nice framework around them.
+Likewise,
+a Go channel can be built using primitives from
+<a class="reference external" href="http://dlang.org/phobos/std_concurrency.html">std.concurrency</a>.
+The structural typing of Go interfaces,
+can be replicated with
+<a class="reference external" href="http://dlang.org/phobos/std_typecons.html#.wrap">wrap and unwrap</a>
+from Ds standard library.</p>
+<p>Why would you prefer D?
+D supports generic programming,
+which means less code and more type safety.
+D provides a bigger toolbox to choose the right tool for the job.
+Compiling D is as fast as compiling Go.</p>
 </div>
 <div class="section" id="for-python-ruby-perl-javascript-lua-programmers">
 <h2>For Python-Ruby-Perl-Javascript-Lua Programmers<a class="headerlink" href="#for-python-ruby-perl-javascript-lua-programmers" title="Permalink to this headline">¶</a></h2>
@@ -132,11 +207,15 @@ but that does not feel like batteries-included.</p>
           <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="hello.html">Hello World</a></li>
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Philosophy</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#for-c-and-c-programmers">For C (and C++) Programmers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Other Languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#for-c-programmers">For C Programmers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#for-java-programmers">For Java Programmers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#for-c-programmers">For C++ Programmers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">For C# Programmers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">For C++ Programmers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">For C# Programmers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-node-js-programmers">For Node.js Programmers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-clojure-programmers">For Clojure Programmers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-scala-programmers">For Scala Programmers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-go-programmers">For Go Programmers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#for-python-ruby-perl-javascript-lua-programmers">For Python-Ruby-Perl-Javascript-Lua Programmers</a></li>
 </ul>
 </li>
@@ -183,7 +262,7 @@ but that does not feel like batteries-included.</p>
           <a href="debugging.html" title="Debugging"
              >next</a>
             <br/>
-            <a href="_sources/basics.txt"
+            <a href="_sources/others.txt"
                rel="nofollow">Show Source</a>
         </div>
 
@@ -191,7 +270,7 @@ but that does not feel like batteries-included.</p>
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-11-15.
+      Last updated on 2013-11-28.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
         </div>
