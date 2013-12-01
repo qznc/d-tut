@@ -74,7 +74,7 @@ Memory Model
 Currently, D has no specified memory model.
 However, you can assume that it will follow the intentions of C++ memory model.
 This means:
-Sequential consistency for data-race-free prpgrams.
+Sequential consistency for data-race-free programs.
 In other words:
 Properly synchronize your stuff with locks and stuff from the standard library
 and everything will behave to your intuition.

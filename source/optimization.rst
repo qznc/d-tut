@@ -8,7 +8,7 @@ but it is not in the same league as the more popular compiler backends.
 Hence, for an additional 10-20% performance boost
 (or more for microbenchmarks),
 use LDC or GDC.
-All three compiler use the same frontend,
+All three compilers use the same frontend,
 but LDC uses LLVM and GDC the GCC backend.
 
 Nevertheless, dmd is the reference compiler
@@ -47,7 +47,7 @@ It contains data somewhat similar to the following.
 
 The table shown above displays the most time consuming functions of the program.
 Apparently, ``writeln`` dominates with a total of 77742 msecs over 2 calls.
-A single calls took 38871 msecs on average.
+A single call took 38871 msecs on average.
 The ``MessageBox.get`` took a little bit less total time,``
 however the "Tree Time" is 231962 msecs,
 which is the sum of the time of called functions.

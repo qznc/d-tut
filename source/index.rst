@@ -26,7 +26,7 @@ there are a few assumptions about you, the reader.
 Scope
 -----
 
-This tutorial does not explore deeply into the syntax and semantic of D
+This tutorial does not explore deeply into the syntax and semantics of D
 nor does it try to cover every feature.
 Since D is a large language,
 it does not make sense to learn everything,
