@@ -61,7 +61,7 @@ Lots of similarities and various differences.
 While you should feel at home,
 D does various things different and that will take some time to adopt.
 Instead of a syntax extension like LINQ,
-D provides a lots of similar mechanisms in the standard library.
+D provides lots of similar mechanisms in the standard library.
 Instead of ``using``, D provides scope guards.
 
 Why would you prefer D?
@@ -77,7 +77,7 @@ and Ds ``function`` is a lightweight variant without state.
 D is statically typed,
 but keeps the boilerplate low.
 Here is `a Rosettacode example <http://rosettacode.org/wiki/Look-and-say_sequence#D>`_,
-which shows a D can be short and concise
+which shows a D program can be short and concise
 or highly optimized.
 
 Why would you prefer D?
@@ -92,7 +92,7 @@ For Clojure Programmers
 -----------------------
 
 D is no Lisp.
-However, its meta programming equally powerful and nearly as easy as Lisp macros.
+However, its meta programming is equally powerful and nearly as easy as Lisp macros.
 D supports immutable data structures,
 although the standard library is not that rich yet.
 D is natively compiled and does not run on the JVM.
@@ -122,7 +122,7 @@ Like Go,
 D is natively compiled.
 However, D has a much richer `feature set <http://dlang.org/comparison.html>`_.
 This means,
-where Go restricts you to carefully choosen selection of features,
+where Go restricts you to carefully chosen selection of features,
 D provides you the lower level building blocks.
 The goroutine is called a
 `fiber <http://dlang.org/phobos/core_thread.html#.Fiber>`_ in D

@@ -19,7 +19,7 @@ You probably must instantiate T like `T!int` to fix the error.
 Run-time Errors
 ---------------
 
-Run-time errors means that the compiled program
+Run-time errors mean that the compiled program
 does not behave like intended.
 
 Stack-traces

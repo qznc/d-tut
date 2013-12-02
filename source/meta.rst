@@ -75,7 +75,7 @@ Another great example of meta programming is `LuaD <http://jakobovrum.github.io/
 It integrates the Lua scripting language into D.
 In contrast to the C interface, the Lua stack operations are hidden with meta programming.
 Effectively, Lua objects can be used like D objects
-instead explicit push/pop calls.
+instead of explicit push/pop calls.
 
 .. code-block:: d
 

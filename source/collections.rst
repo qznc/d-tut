@@ -10,7 +10,7 @@ Slices
 The basic array type in D is called a slice.
 In C an array is just syntactic sugar for a pointer,
 which means that length checks must be handled by the user.
-Higher-level languages like Java provide an referenced data structure,
+Higher-level languages like Java provide a referenced data structure,
 which necessarily means a double indirection.
 D slices are in between.
 They know their size,
@@ -40,7 +40,7 @@ More
 Everybody agrees that currently the standard library should provide more collection types.
 However, the community wants to have the allocator design finished,
 before collections are designed,
-because allocation is a important part within collections.
+because allocation is an important part within collections.
 Nevertheless, if you need more right now,
 there are a few options.
 

@@ -91,7 +91,7 @@ consider the expression ``sort(chain(a,b,c))``,
 where ``sort`` and ``chain`` are ordinary functions from the standard library.
 Like the name suggests,
 ``sort`` is the sorting function
-and ``chain`` wraps multiples range into one.
+and ``chain`` wraps multiple ranges into one.
 If ``a``, ``b``, and ``c`` are random access arrays,
 then ``sort`` can perform in-place over three distinct arrays.
 
@@ -113,7 +113,7 @@ Compile Time Function Evaluation
 --------------------------------
 
 Since D allows to call certain D code at compile time,
-a library write should enable her functions for compile time evaluation.
+a library writer should enable her functions for compile time evaluation.
 This often means to write code according to the functional programming paradigm.
 
 Scope Guards
