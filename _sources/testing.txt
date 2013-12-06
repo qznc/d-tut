@@ -1,3 +1,5 @@
+.. _testing:
+
 Testing
 =======
 
@@ -65,5 +67,6 @@ There are advance test frameworks available, though.
 
 .. seealso::
 
-   `DUnit <https://github.com/nomad-software/dunit>`_,
-   `Unit-threaded <https://github.com/atilaneves/unit-threaded>`_
+   `DUnit <http://code.dlang.org/packages/dunit>`_,
+   `Unit-threaded <https://github.com/atilaneves/unit-threaded>`_,
+   `SpecD <https://github.com/jostly/specd>`_

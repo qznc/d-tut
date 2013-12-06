@@ -61,7 +61,12 @@ Here is why you might prefer D.</p>
 <p>D has no preprocessor,
 but equivalent meta programming mechanisms.
 Syntactically, lots of C code is actually valid D.
-It should be noted that D defines a lot of things,
+Some people consider the D compiler a nice C compiler.</p>
+<blockquote>
+<div>I&#8217;m writing my C code with DMD.
+When tested and tweaked I do a final compile with C compiler.
+– <a class="reference external" href="http://forum.dlang.org/post/ibnfbsvxqzjxyfpnzseh&#64;forum.dlang.org">ed</a></div></blockquote>
+<p>It should be noted that D defines a lot of things,
 which are undefined (or architecture-, implementation-defined) in C.
 For example, integer overflows wrap around in D,
 because that is what practically every architecture today does.</p>
@@ -105,7 +110,7 @@ and automatic memory management.</p>
 While you should feel at home,
 D does various things different and that will take some time to adopt.
 Instead of a syntax extension like LINQ,
-D provides a lots of similar mechanisms in the standard library.
+D provides lots of similar mechanisms in the standard library.
 Instead of <tt class="docutils literal"><span class="pre">using</span></tt>, D provides scope guards.</p>
 <p>Why would you prefer D?
 D does not require a virtual machine,
@@ -119,7 +124,7 @@ and Ds <tt class="docutils literal"><span class="pre">function</span></tt> is a 
 D is statically typed,
 but keeps the boilerplate low.
 Here is <a class="reference external" href="http://rosettacode.org/wiki/Look-and-say_sequence#D">a Rosettacode example</a>,
-which shows a D can be short and concise
+which shows a D program can be short and concise
 or highly optimized.</p>
 <p>Why would you prefer D?
 If CPU or memory is a bottleneck,
@@ -132,7 +137,7 @@ This D framework is
 <div class="section" id="for-clojure-programmers">
 <h2>For Clojure Programmers<a class="headerlink" href="#for-clojure-programmers" title="Permalink to this headline">¶</a></h2>
 <p>D is no Lisp.
-However, its meta programming equally powerful and nearly as easy as Lisp macros.
+However, its meta programming is equally powerful and nearly as easy as Lisp macros.
 D supports immutable data structures,
 although the standard library is not that rich yet.
 D is natively compiled and does not run on the JVM.</p>
@@ -158,7 +163,7 @@ and the speed of code-compile-test iterations is important for productivity.</p>
 D is natively compiled.
 However, D has a much richer <a class="reference external" href="http://dlang.org/comparison.html">feature set</a>.
 This means,
-where Go restricts you to carefully choosen selection of features,
+where Go restricts you to carefully chosen selection of features,
 D provides you the lower level building blocks.
 The goroutine is called a
 <a class="reference external" href="http://dlang.org/phobos/core_thread.html#.Fiber">fiber</a> in D
@@ -270,7 +275,7 @@ but that does not feel like batteries-included.</p>
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-11-28.
+      Last updated on 2014-01-11.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
         </div>

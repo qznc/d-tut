@@ -112,18 +112,26 @@ You can provide a grammar and at compile time an efficient parser is generated.<
 <span class="s">`</span><span class="p">));</span>
 </pre></div>
 </div>
+<p>The little brother of grammars are regular expressions.
+The D standard library comes with
+<a class="reference external" href="http://dlang.org/phobos/std_regex.html">std.regex</a>,
+which is also a nice example of meta programming.
+It turns terse
+<a class="reference external" href="http://dlang.org/regular-expression.html">regular expression into code</a>
+at compile time.</p>
 <p>Another great example of meta programming is <a class="reference external" href="http://jakobovrum.github.io/LuaD/">LuaD</a>.
 It integrates the Lua scripting language into D.
 In contrast to the C interface, the Lua stack operations are hidden with meta programming.
 Effectively, Lua objects can be used like D objects
-instead explicit push/pop calls.</p>
+instead of explicit push/pop calls.</p>
 <div class="highlight-d"><div class="highlight"><pre><span class="k">auto</span> <span class="n">print</span> <span class="p">=</span> <span class="n">lua</span><span class="p">.</span><span class="n">get</span><span class="p">!</span><span class="n">LuaFunction</span><span class="p">(</span><span class="s">&quot;print&quot;</span><span class="p">);</span>
 <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://nomad.so/2013/07/templates-in-d-explained/">Templates in D explained</a></p>
+<p class="last"><a class="reference external" href="http://nomad.so/2013/07/templates-in-d-explained/">Templates in D explained</a>,
+<a class="reference external" href="http://dlang.org/regular-expression.html">Regular expressions</a></p>
 </div>
 </div>
 </div>
@@ -195,7 +203,7 @@ instead explicit push/pop calls.</p>
           
     <div class="footer">
         &copy; Copyright 2013, Andreas Zwinkau.
-      Last updated on 2013-11-28.
+      Last updated on 2013-12-07.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
         </div>

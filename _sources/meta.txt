@@ -71,11 +71,19 @@ You can provide a grammar and at compile time an efficient parser is generated.
       Variable <- identifier
     `));
 
+The little brother of grammars are regular expressions.
+The D standard library comes with
+`std.regex <http://dlang.org/phobos/std_regex.html>`_,
+which is also a nice example of meta programming.
+It turns terse
+`regular expression into code <http://dlang.org/regular-expression.html>`_
+at compile time.
+
 Another great example of meta programming is `LuaD <http://jakobovrum.github.io/LuaD/>`_.
 It integrates the Lua scripting language into D.
 In contrast to the C interface, the Lua stack operations are hidden with meta programming.
 Effectively, Lua objects can be used like D objects
-instead explicit push/pop calls.
+instead of explicit push/pop calls.
 
 .. code-block:: d
 
@@ -84,4 +92,5 @@ instead explicit push/pop calls.
 
 .. seealso::
 
-   `Templates in D explained <http://nomad.so/2013/07/templates-in-d-explained/>`_
+   `Templates in D explained <http://nomad.so/2013/07/templates-in-d-explained/>`_,
+   `Regular expressions  <http://dlang.org/regular-expression.html>`_

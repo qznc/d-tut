@@ -1,7 +1,7 @@
 Memory Management
 =================
 
-D use garbage collection for heap allocated data by default.
+D uses garbage collection for heap allocated data by default.
 This provides a safe default
 and you can program without memory worries like in Java.
 
