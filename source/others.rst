@@ -11,6 +11,12 @@ For C Programmers
 D has no preprocessor,
 but equivalent meta programming mechanisms.
 Syntactically, lots of C code is actually valid D.
+Some people consider the D compiler a nice C compiler.
+
+  I'm writing my C code with DMD.
+  When tested and tweaked I do a final compile with C compiler.
+  – `ed <http://forum.dlang.org/post/ibnfbsvxqzjxyfpnzseh@forum.dlang.org>`_
+
 It should be noted that D defines a lot of things,
 which are undefined (or architecture-, implementation-defined) in C.
 For example, integer overflows wrap around in D,
