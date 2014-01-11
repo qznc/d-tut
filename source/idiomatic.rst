@@ -6,6 +6,29 @@ so there is not that much experience about best practices.
 Nevertheless, due to runtime and standard library
 certain characteristics can be considered idiomatic.
 
+Short Tips
+----------
+
+* Declare local variables as ``auto`` or just ``const``.
+  This means their type is infered.
+* ``foreach`` or higher-order functions are preferred
+  over ``for``/``while`` loops.
+* Do not overuse object-oriented programming.
+  D also supports functional and generic programming,
+  which are more appropriate in some cases.
+* Use uniform function call syntax when it makes sense
+  to chain calls or increase readability.
+* Know ``alias this``,
+  it basically provides inheritance for structs.
+* Put unit tests under each function
+  (see :ref:`testing`).
+* Use Ddoc-style documentation
+  (see :ref:`documentation`).
+
+.. seealso::
+   `D examples of Rosetta Code <http://rosettacode.org/wiki/Category:D>`_,
+   `Uniform Function Call Syntax <http://www.drdobbs.com/cpp/uniform-function-call-syntax/232700394>`_
+
 Constness
 ---------
 
