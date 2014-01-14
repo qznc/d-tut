@@ -15,7 +15,14 @@ The builtin D type ``string``
 is just an immutable char array.
 However, if you iterate over it,
 dchar code points are returned.
-Thus the following different lengths.
+This often leads to confusion.
+
+  I'm curious, why is the .front property of narrow strings of type dchar?
+  And not the underlying character type for the string.
+  – `TheFlyingFiddle <http://forum.dlang.org/post/urhhmrnzovxnyufcipwt@forum.dlang.org>`_
+
+For another example,
+it results in the following different lengths.
 
 .. code-block:: d
 
