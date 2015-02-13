@@ -68,7 +68,7 @@ While you should feel at home,
 D does various things different and that will take some time to adopt.
 Instead of a syntax extension like LINQ,
 D provides lots of similar mechanisms in the standard library.
-Instead of ``using``, D provides scope guards.
+Ex. instead of ``using``, D provides scope guards.
 
 Why would you prefer D?
 D does not require a virtual machine,
