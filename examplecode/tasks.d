@@ -27,4 +27,3 @@ void main() {
         std.algorithm.map!getTerm(iota(n))
     );
 }
- 
